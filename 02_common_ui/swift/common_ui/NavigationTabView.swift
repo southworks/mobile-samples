@@ -6,9 +6,10 @@
 import SwiftUI
 
 struct NavigationExamplesMenuView: View {
+    @State private var showSheet = false
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
+            List {
                 Section("Planets") {
                     NavigationLink("Mercury") {
                         DetailMessageView(
@@ -16,7 +17,7 @@ struct NavigationExamplesMenuView: View {
                             message: "Mercury is the smallest planet in our solar system."
                         )
                     }
-
+                    
                     NavigationLink("Venus") {
                         DetailMessageView(
                             title: "Venus",
@@ -24,7 +25,7 @@ struct NavigationExamplesMenuView: View {
                         )
                     }
                 }
-
+                
                 Section("Stars") {
                     NavigationLink("Sun") {
                         DetailMessageView(
@@ -33,14 +34,18 @@ struct NavigationExamplesMenuView: View {
                         )
                     }
                 }
+                
+                Button("Open sheet") {
+                    showSheet = true
+                }
             }
             .navigationTitle("Navigation")
             .sheet(isPresented: $showSheet) {
                 NavigationStack {
                     List {
-                        Section("Courses") {
-                            for i in 0...10 {
-                                NavigationLink("SwiftUI Basics") {
+                        Section("Elements") {
+                            ForEach(0..<10) { i in
+                                NavigationLink("Element \(i)") {
                                     DetailMessageView(
                                         title: "Navigation \(i)",
                                         message: "Detail message for navigation \(i)."
