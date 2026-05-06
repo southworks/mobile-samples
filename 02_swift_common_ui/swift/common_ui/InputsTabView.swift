@@ -8,49 +8,30 @@ import SwiftUI
 struct InputsMenuView: View {
     var body: some View {
         NavigationStack {
-            List {
-                NavigationLink("Button") {
-                    ButtonExampleView()
-                }
-
-                NavigationLink("Toggle") {
-                    ToggleExampleView()
-                }
-
-                NavigationLink("Picker") {
-                    PickerExampleView()
-                }
-
-                NavigationLink("DatePicker") {
-                    DatePickerExampleView()
-                }
-
-                NavigationLink("Slider") {
-                    SliderExampleView()
-                }
-
-                NavigationLink("TextField") {
-                    TextFieldExampleView()
-                }
-
-                NavigationLink("SecureField") {
-                    SecureFieldExampleView()
-                }
-
-                NavigationLink("TextEditor") {
-                    TextEditorExampleView()
-                }
-            }
-            .navigationTitle("Inputs")
+            InputsExampleView()
         }
     }
 }
 
-private struct ButtonExampleView: View {
+private struct InputsExampleView: View {
     @State private var showAlert = false
+    @State private var notificationsEnabled = false
+    @State private var showDialog = false
+    @State private var selectedColor = "Blue"
+    @State private var selectedDate = Date()
+    @State private var showSheet = false
+    @State private var showPopover = false
+    @State private var amount = 40.0
+    @State private var username = ""
+    @State private var password = ""
+    @State private var showFullScreenCover = false
+    @State private var notes = "Write a few lines here..."
+
+    private let colors = ["Blue", "Green", "Orange"]
 
     var body: some View {
-        ExampleScreen("Button + Alert") {
+        ExampleScreen("Inputs") {
+            sectionTitle("Button + Alert")
             Text("This button triggers an alert.")
                 .foregroundStyle(.secondary)
 
@@ -58,50 +39,23 @@ private struct ButtonExampleView: View {
                 showAlert = true
             }
             .buttonStyle(.borderedProminent)
-        }
-        .alert("Button tapped", isPresented: $showAlert) {
-            Button("OK", role: .cancel) { }
-        } message: {
-            Text("Alerts are useful for important feedback.")
-        }
-    }
-}
 
-private struct ToggleExampleView: View {
-    @State private var isEnabled = false
-    @State private var showDialog = false
+            Divider()
 
-    var body: some View {
-        ExampleScreen("Toggle + ConfirmationDialog") {
-            Toggle("Activate notifications", isOn: $isEnabled)
-                .onChange(of: isEnabled) { _, newValue in
+            sectionTitle("Toggle + ConfirmationDialog")
+            Toggle("Activate notifications", isOn: $notificationsEnabled)
+                .onChange(of: notificationsEnabled) { _, newValue in
                     if newValue {
                         showDialog = true
                     }
                 }
 
-            Text(isEnabled ? "Notifications enabled" : "Notifications disabled")
+            Text(notificationsEnabled ? "Notifications enabled" : "Notifications disabled")
                 .foregroundStyle(.secondary)
-        }
-        .confirmationDialog("Choose a notification frequency", isPresented: $showDialog) {
-            Button("Daily") { }
-            Button("Weekly") { }
-            Button("Cancel", role: .cancel) {
-                isEnabled = false
-            }
-        } message: {
-            Text("Confirmation dialogs present a few related actions.")
-        }
-    }
-}
 
-private struct PickerExampleView: View {
-    @State private var selectedColor = "Blue"
-    @State private var showSheet = false
-    private let colors = ["Blue", "Green", "Orange"]
+            Divider()
 
-    var body: some View {
-        ExampleScreen("Picker + Sheet") {
+            sectionTitle("Picker + Sheet")
             Picker("Theme color", selection: $selectedColor) {
                 ForEach(colors, id: \.self) { color in
                     Text(color).tag(color)
@@ -113,6 +67,75 @@ private struct PickerExampleView: View {
                 showSheet = true
             }
             .buttonStyle(.bordered)
+
+            Divider()
+
+            sectionTitle("DatePicker + Popover")
+            DatePicker("Choose a date", selection: $selectedDate, displayedComponents: .date)
+
+            Button("Show Selected Date") {
+                showPopover = true
+            }
+            .buttonStyle(.bordered)
+
+            Divider()
+
+            sectionTitle("Slider")
+            Text("Brightness: \(Int(amount))%")
+            Slider(value: $amount, in: 0...100, step: 1)
+
+            RoundedRectangle(cornerRadius: 16)
+                .fill(.yellow.opacity(max(amount / 100, 0.15)))
+                .frame(height: 120)
+                .overlay {
+                    Text("Live preview")
+                        .fontWeight(.semibold)
+                }
+
+            Divider()
+
+            sectionTitle("TextField")
+            TextField("Enter your username", text: $username)
+                .textFieldStyle(.roundedBorder)
+
+            Text(username.isEmpty ? "No text entered" : "Current text: \(username)")
+                .foregroundStyle(.secondary)
+
+            Divider()
+
+            sectionTitle("SecureField + FullScreenCover")
+            SecureField("Enter a password", text: $password)
+                .textFieldStyle(.roundedBorder)
+
+            Button("Open Full Screen") {
+                showFullScreenCover = true
+            }
+            .buttonStyle(.borderedProminent)
+
+            Divider()
+
+            sectionTitle("TextEditor")
+            TextEditor(text: $notes)
+                .frame(height: 180)
+                .padding(8)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color(.systemGray4), lineWidth: 1)
+                }
+        }
+        .alert("Button tapped", isPresented: $showAlert) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Alerts are useful for important feedback.")
+        }
+        .confirmationDialog("Choose a notification frequency", isPresented: $showDialog) {
+            Button("Daily") { }
+            Button("Weekly") { }
+            Button("Cancel", role: .cancel) {
+                notificationsEnabled = false
+            }
+        } message: {
+            Text("Confirmation dialogs present a few related actions.")
         }
         .sheet(isPresented: $showSheet) {
             NavigationStack {
@@ -128,92 +151,13 @@ private struct PickerExampleView: View {
             }
             .presentationDetents([.medium])
         }
-    }
-}
-
-private struct DatePickerExampleView: View {
-    @State private var selectedDate = Date()
-    @State private var showPopover = false
-
-    var body: some View {
-        ExampleScreen("DatePicker + Popover") {
-            DatePicker("Choose a date", selection: $selectedDate, displayedComponents: .date)
-
-            Button("Show Selected Date") {
-                showPopover = true
-            }
-            .buttonStyle(.bordered)
-            .popover(isPresented: $showPopover) {
-                VStack(spacing: 12) {
-                    Text("Selected Date")
-                        .font(.headline)
-                    Text(selectedDate.formatted(date: .long, time: .omitted))
-                }
-                .padding()
-            }
-        }
-    }
-}
-
-private struct SliderExampleView: View {
-    @State private var amount = 40.0
-
-    var body: some View {
-        ExampleScreen("Slider") {
-            Text("Brightness: \(Int(amount))%")
-            Slider(value: $amount, in: 0...100, step: 1)
-
-            RoundedRectangle(cornerRadius: 16)
-                .fill(.yellow.opacity(max(amount / 100, 0.15)))
-                .frame(height: 120)
-                .overlay {
-                    Text("Live preview")
-                        .fontWeight(.semibold)
-                }
-        }
-    }
-}
-
-private struct TextFieldExampleView: View {
-    @State private var username = ""
-    @State private var showSheet = false
-
-    var body: some View {
-        ExampleScreen("TextField + Sheet") {
-            TextField("Enter your username", text: $username)
-                .textFieldStyle(.roundedBorder)
-
-            Button("Review Text") {
-                showSheet = true
-            }
-            .buttonStyle(.bordered)
-        }
-        .sheet(isPresented: $showSheet) {
-            VStack(spacing: 16) {
-                Text("Current value")
+        .popover(isPresented: $showPopover) {
+            VStack(spacing: 12) {
+                Text("Selected Date")
                     .font(.headline)
-                Text(username.isEmpty ? "No text entered" : username)
-                    .font(.title2)
+                Text(selectedDate.formatted(date: .long, time: .omitted))
             }
             .padding()
-            .presentationDetents([.medium])
-        }
-    }
-}
-
-private struct SecureFieldExampleView: View {
-    @State private var password = ""
-    @State private var showFullScreenCover = false
-
-    var body: some View {
-        ExampleScreen("SecureField + FullScreenCover") {
-            SecureField("Enter a password", text: $password)
-                .textFieldStyle(.roundedBorder)
-
-            Button("Open Full Screen") {
-                showFullScreenCover = true
-            }
-            .buttonStyle(.borderedProminent)
         }
         .fullScreenCover(isPresented: $showFullScreenCover) {
             NavigationStack {
@@ -238,35 +182,9 @@ private struct SecureFieldExampleView: View {
             }
         }
     }
-}
 
-private struct TextEditorExampleView: View {
-    @State private var notes = "Write a few lines here..."
-    @State private var showDialog = false
-
-    var body: some View {
-        ExampleScreen("TextEditor + ConfirmationDialog") {
-            TextEditor(text: $notes)
-                .frame(height: 180)
-                .padding(8)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color(.systemGray4), lineWidth: 1)
-                }
-
-            Button("Editor Actions") {
-                showDialog = true
-            }
-            .buttonStyle(.bordered)
-        }
-        .confirmationDialog("Choose an action", isPresented: $showDialog) {
-            Button("Clear text") {
-                notes = ""
-            }
-            Button("Insert sample") {
-                notes = "SwiftUI TextEditor is useful for multiline input."
-            }
-            Button("Cancel", role: .cancel) { }
-        }
+    private func sectionTitle(_ title: String) -> some View {
+        Text(title)
+            .font(.headline)
     }
 }

@@ -8,85 +8,95 @@ import SwiftUI
 struct NavigationExamplesMenuView: View {
     var body: some View {
         NavigationStack {
-            NavigationExamplesView()
+            List {
+                NavigationLink("NavigationStack") {
+                    NavigationStackDestinationView()
+                }
+
+                NavigationLink("NavigationLink") {
+                    NavigationLinkDestinationView()
+                }
+
+                NavigationLink("Sheet Navigation") {
+                    SheetNavigationDestinationView()
+                }
+            }
+            .navigationTitle("Navigation")
         }
     }
 }
 
-private struct NavigationExamplesView: View {
+private struct NavigationStackDestinationView: View {
+    var body: some View {
+        NavigationStack {
+            List {
+                Section("Planets") {
+                    NavigationLink("Mercury") {
+                        DetailMessageView(
+                            title: "Mercury",
+                            message: "This detail was pushed from a list inside a dedicated NavigationStack example."
+                        )
+                    }
+
+                    NavigationLink("Venus") {
+                        DetailMessageView(
+                            title: "Venus",
+                            message: "NavigationStack manages the path for this destination."
+                        )
+                    }
+                }
+
+                Section("Stars") {
+                    NavigationLink("Sun") {
+                        DetailMessageView(
+                            title: "Sun",
+                            message: "This is another destination in the same stack."
+                        )
+                    }
+                }
+            }
+            .navigationTitle("NavigationStack")
+        }
+    }
+}
+
+private struct NavigationLinkDestinationView: View {
+    var body: some View {
+        List {
+            Section("Cities") {
+                NavigationLink("Buenos Aires") {
+                    DetailMessageView(
+                        title: "Buenos Aires",
+                        message: "This destination comes from a NavigationLink inside a list."
+                    )
+                }
+
+                NavigationLink("Tokyo") {
+                    DetailMessageView(
+                        title: "Tokyo",
+                        message: "Each NavigationLink can open a different detail."
+                    )
+                }
+
+                NavigationLink("Madrid") {
+                    DetailMessageView(
+                        title: "Madrid",
+                        message: "This is a third destination to compare link behavior."
+                    )
+                }
+            }
+        }
+        .navigationTitle("NavigationLink")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+private struct SheetNavigationDestinationView: View {
     @State private var showSheet = false
 
     var body: some View {
-        ExampleScreen("Navigation") {
-            Text("NavigationStack")
-                .font(.headline)
-
-            Text("A NavigationStack manages a path of destinations.")
-                .foregroundStyle(.secondary)
-
-            List {
-                NavigationLink("Go to stack detail") {
-                    DetailMessageView(
-                        title: "NavigationStack Detail",
-                        message: "This detail is pushed from a list inside the navigation example."
-                    )
-                }
-            }
-            .frame(height: 90)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-
-            Divider()
-
-            Text("NavigationLink")
-                .font(.headline)
-
-            Text("Each NavigationLink can open a different destination.")
-                .foregroundStyle(.secondary)
-
-            List {
-                NavigationLink("Open first detail") {
-                    DetailMessageView(
-                        title: "First Destination",
-                        message: "NavigationLink pushes a new view onto the current stack."
-                    )
-                }
-
-                NavigationLink("Open second detail") {
-                    DetailMessageView(
-                        title: "Second Destination",
-                        message: "Each link can navigate to a different view."
-                    )
-                }
-            }
-            .frame(height: 140)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-
-            Divider()
-
-            Text("List")
-                .font(.headline)
-
-            List {
-                Section("Fruits") {
-                    Text("Apple")
-                    Text("Banana")
-                    Text("Orange")
-                }
-
-                Section("Vegetables") {
-                    Text("Carrot")
-                    Text("Tomato")
-                }
-            }
-            .frame(height: 180)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-
-            Divider()
-
-            Text("Sheet Navigation")
-                .font(.headline)
-
-            Text("A sheet can present its own NavigationStack.")
+        ExampleScreen("Sheet Navigation") {
+            Text("This example opens a sheet that contains its own navigation flow based on a list.")
                 .foregroundStyle(.secondary)
 
             Button("Open Sheet") {
@@ -97,18 +107,20 @@ private struct NavigationExamplesView: View {
         .sheet(isPresented: $showSheet) {
             NavigationStack {
                 List {
-                    NavigationLink("Open sheet detail") {
-                        DetailMessageView(
-                            title: "Sheet Detail",
-                            message: "This navigation happens inside the presented sheet."
-                        )
-                    }
+                    Section("Courses") {
+                        NavigationLink("SwiftUI Basics") {
+                            DetailMessageView(
+                                title: "SwiftUI Basics",
+                                message: "This detail is being shown inside a sheet-hosted NavigationStack."
+                            )
+                        }
 
-                    NavigationLink("Open another sheet detail") {
-                        DetailMessageView(
-                            title: "Sheet Second Detail",
-                            message: "This is a second list-based navigation example inside the sheet."
-                        )
+                        NavigationLink("State Management") {
+                            DetailMessageView(
+                                title: "State Management",
+                                message: "A second destination inside the same sheet example."
+                            )
+                        }
                     }
                 }
                 .navigationTitle("Sheet")
