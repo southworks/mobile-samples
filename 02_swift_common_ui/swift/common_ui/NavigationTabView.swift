@@ -1,6 +1,6 @@
 //
 //  NavigationTabView.swift
-//  common_ui
+//  common_uiX
 //
 
 import SwiftUI
@@ -13,14 +13,14 @@ struct NavigationExamplesMenuView: View {
                     NavigationLink("Mercury") {
                         DetailMessageView(
                             title: "Mercury",
-                            message: "This detail was pushed from a list inside a dedicated NavigationStack example."
+                            message: "Mercury is the smallest planet in our solar system."
                         )
                     }
 
                     NavigationLink("Venus") {
                         DetailMessageView(
                             title: "Venus",
-                            message: "NavigationStack manages the path for this destination."
+                            message: "Venus is the second planet from the Sun."
                         )
                     }
                 }
@@ -29,7 +29,7 @@ struct NavigationExamplesMenuView: View {
                     NavigationLink("Sun") {
                         DetailMessageView(
                             title: "Sun",
-                            message: "This is another destination in the same stack."
+                            message: "Sun is the star at the center of our solar system."
                         )
                     }
                 }
