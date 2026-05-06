@@ -6,85 +6,63 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		57B100012FA3AB6D0043EEC1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 57B100072FA3AB6D0043EEC1 /* FirebaseAuth */; };
-		57B100022FA3AB6D0043EEC1 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 57B100082FA3AB6D0043EEC1 /* FirebaseCore */; };
-		57B100032FA3AB6D0043EEC1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 57B100092FA3AB6D0043EEC1 /* GoogleSignIn */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
-		571A73002FA3AB6D0043EEC1 /* PBXContainerItemProxy */ = {
+		57E2B6F62FAB7443006E35F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 571A72EA2FA3AB6B0043EEC1 /* Project object */;
+			containerPortal = 57E2B6E02FAB7441006E35F3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 571A72F12FA3AB6B0043EEC1;
-			remoteInfo = "google-sso-sample";
+			remoteGlobalIDString = 57E2B6E72FAB7441006E35F3;
+			remoteInfo = common_ui;
 		};
-		571A730A2FA3AB6D0043EEC1 /* PBXContainerItemProxy */ = {
+		57E2B7002FAB7443006E35F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 571A72EA2FA3AB6B0043EEC1 /* Project object */;
+			containerPortal = 57E2B6E02FAB7441006E35F3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 571A72F12FA3AB6B0043EEC1;
-			remoteInfo = "google-sso-sample";
+			remoteGlobalIDString = 57E2B6E72FAB7441006E35F3;
+			remoteInfo = common_ui;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		571A72F22FA3AB6B0043EEC1 /* google-sso-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "google-sso-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		571A72FF2FA3AB6D0043EEC1 /* google-sso-sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "google-sso-sampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		571A73092FA3AB6D0043EEC1 /* google-sso-sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "google-sso-sampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		57E2B6E82FAB7441006E35F3 /* common_ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = common_ui.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57E2B6F52FAB7443006E35F3 /* common_uiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = common_uiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57E2B6FF2FAB7443006E35F3 /* common_uiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = common_uiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		57E2B6DE2FAA5434006E35F3 /* Exceptions for "google-sso-sample" folder in "google-sso-sample" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/Info.plist,
-			);
-			target = 571A72F12FA3AB6B0043EEC1 /* google-sso-sample */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		571A72F42FA3AB6B0043EEC1 /* google-sso-sample */ = {
+		57E2B6EA2FAB7441006E35F3 /* common_ui */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				57E2B6DE2FAA5434006E35F3 /* Exceptions for "google-sso-sample" folder in "google-sso-sample" target */,
-			);
-			path = "google-sso-sample";
+			path = common_ui;
 			sourceTree = "<group>";
 		};
-		571A73022FA3AB6D0043EEC1 /* google-sso-sampleTests */ = {
+		57E2B6F82FAB7443006E35F3 /* common_uiTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "google-sso-sampleTests";
+			path = common_uiTests;
 			sourceTree = "<group>";
 		};
-		571A730C2FA3AB6D0043EEC1 /* google-sso-sampleUITests */ = {
+		57E2B7022FAB7443006E35F3 /* common_uiUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "google-sso-sampleUITests";
+			path = common_uiUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		571A72EF2FA3AB6B0043EEC1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				57B100012FA3AB6D0043EEC1 /* FirebaseAuth in Frameworks */,
-				57B100022FA3AB6D0043EEC1 /* FirebaseCore in Frameworks */,
-				57B100032FA3AB6D0043EEC1 /* GoogleSignIn in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		571A72FC2FA3AB6D0043EEC1 /* Frameworks */ = {
+		57E2B6E52FAB7441006E35F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		571A73062FA3AB6D0043EEC1 /* Frameworks */ = {
+		57E2B6F22FAB7443006E35F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57E2B6FC2FAB7443006E35F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -94,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		571A72E92FA3AB6B0043EEC1 = {
+		57E2B6DF2FAB7441006E35F3 = {
 			isa = PBXGroup;
 			children = (
-				571A72F42FA3AB6B0043EEC1 /* google-sso-sample */,
-				571A73022FA3AB6D0043EEC1 /* google-sso-sampleTests */,
-				571A730C2FA3AB6D0043EEC1 /* google-sso-sampleUITests */,
-				571A72F32FA3AB6B0043EEC1 /* Products */,
+				57E2B6EA2FAB7441006E35F3 /* common_ui */,
+				57E2B6F82FAB7443006E35F3 /* common_uiTests */,
+				57E2B7022FAB7443006E35F3 /* common_uiUITests */,
+				57E2B6E92FAB7441006E35F3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		571A72F32FA3AB6B0043EEC1 /* Products */ = {
+		57E2B6E92FAB7441006E35F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				571A72F22FA3AB6B0043EEC1 /* google-sso-sample.app */,
-				571A72FF2FA3AB6D0043EEC1 /* google-sso-sampleTests.xctest */,
-				571A73092FA3AB6D0043EEC1 /* google-sso-sampleUITests.xctest */,
+				57E2B6E82FAB7441006E35F3 /* common_ui.app */,
+				57E2B6F52FAB7443006E35F3 /* common_uiTests.xctest */,
+				57E2B6FF2FAB7443006E35F3 /* common_uiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,141 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		571A72F12FA3AB6B0043EEC1 /* google-sso-sample */ = {
+		57E2B6E72FAB7441006E35F3 /* common_ui */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 571A73132FA3AB6D0043EEC1 /* Build configuration list for PBXNativeTarget "google-sso-sample" */;
+			buildConfigurationList = 57E2B7092FAB7443006E35F3 /* Build configuration list for PBXNativeTarget "common_ui" */;
 			buildPhases = (
-				571A72EE2FA3AB6B0043EEC1 /* Sources */,
-				571A72EF2FA3AB6B0043EEC1 /* Frameworks */,
-				571A72F02FA3AB6B0043EEC1 /* Resources */,
+				57E2B6E42FAB7441006E35F3 /* Sources */,
+				57E2B6E52FAB7441006E35F3 /* Frameworks */,
+				57E2B6E62FAB7441006E35F3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				571A72F42FA3AB6B0043EEC1 /* google-sso-sample */,
+				57E2B6EA2FAB7441006E35F3 /* common_ui */,
 			);
-			name = "google-sso-sample";
+			name = common_ui;
 			packageProductDependencies = (
-				57B100072FA3AB6D0043EEC1 /* FirebaseAuth */,
-				57B100082FA3AB6D0043EEC1 /* FirebaseCore */,
-				57B100092FA3AB6D0043EEC1 /* GoogleSignIn */,
 			);
-			productName = "google-sso-sample";
-			productReference = 571A72F22FA3AB6B0043EEC1 /* google-sso-sample.app */;
+			productName = common_ui;
+			productReference = 57E2B6E82FAB7441006E35F3 /* common_ui.app */;
 			productType = "com.apple.product-type.application";
 		};
-		571A72FE2FA3AB6D0043EEC1 /* google-sso-sampleTests */ = {
+		57E2B6F42FAB7443006E35F3 /* common_uiTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 571A73162FA3AB6D0043EEC1 /* Build configuration list for PBXNativeTarget "google-sso-sampleTests" */;
+			buildConfigurationList = 57E2B70C2FAB7443006E35F3 /* Build configuration list for PBXNativeTarget "common_uiTests" */;
 			buildPhases = (
-				571A72FB2FA3AB6D0043EEC1 /* Sources */,
-				571A72FC2FA3AB6D0043EEC1 /* Frameworks */,
-				571A72FD2FA3AB6D0043EEC1 /* Resources */,
+				57E2B6F12FAB7443006E35F3 /* Sources */,
+				57E2B6F22FAB7443006E35F3 /* Frameworks */,
+				57E2B6F32FAB7443006E35F3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				571A73012FA3AB6D0043EEC1 /* PBXTargetDependency */,
+				57E2B6F72FAB7443006E35F3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				571A73022FA3AB6D0043EEC1 /* google-sso-sampleTests */,
+				57E2B6F82FAB7443006E35F3 /* common_uiTests */,
 			);
-			name = "google-sso-sampleTests";
+			name = common_uiTests;
 			packageProductDependencies = (
 			);
-			productName = "google-sso-sampleTests";
-			productReference = 571A72FF2FA3AB6D0043EEC1 /* google-sso-sampleTests.xctest */;
+			productName = common_uiTests;
+			productReference = 57E2B6F52FAB7443006E35F3 /* common_uiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		571A73082FA3AB6D0043EEC1 /* google-sso-sampleUITests */ = {
+		57E2B6FE2FAB7443006E35F3 /* common_uiUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 571A73192FA3AB6D0043EEC1 /* Build configuration list for PBXNativeTarget "google-sso-sampleUITests" */;
+			buildConfigurationList = 57E2B70F2FAB7443006E35F3 /* Build configuration list for PBXNativeTarget "common_uiUITests" */;
 			buildPhases = (
-				571A73052FA3AB6D0043EEC1 /* Sources */,
-				571A73062FA3AB6D0043EEC1 /* Frameworks */,
-				571A73072FA3AB6D0043EEC1 /* Resources */,
+				57E2B6FB2FAB7443006E35F3 /* Sources */,
+				57E2B6FC2FAB7443006E35F3 /* Frameworks */,
+				57E2B6FD2FAB7443006E35F3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				571A730B2FA3AB6D0043EEC1 /* PBXTargetDependency */,
+				57E2B7012FAB7443006E35F3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				571A730C2FA3AB6D0043EEC1 /* google-sso-sampleUITests */,
+				57E2B7022FAB7443006E35F3 /* common_uiUITests */,
 			);
-			name = "google-sso-sampleUITests";
+			name = common_uiUITests;
 			packageProductDependencies = (
 			);
-			productName = "google-sso-sampleUITests";
-			productReference = 571A73092FA3AB6D0043EEC1 /* google-sso-sampleUITests.xctest */;
+			productName = common_uiUITests;
+			productReference = 57E2B6FF2FAB7443006E35F3 /* common_uiUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		571A72EA2FA3AB6B0043EEC1 /* Project object */ = {
+		57E2B6E02FAB7441006E35F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2640;
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
-					571A72F12FA3AB6B0043EEC1 = {
+					57E2B6E72FAB7441006E35F3 = {
 						CreatedOnToolsVersion = 26.4.1;
 					};
-					571A72FE2FA3AB6D0043EEC1 = {
+					57E2B6F42FAB7443006E35F3 = {
 						CreatedOnToolsVersion = 26.4.1;
-						TestTargetID = 571A72F12FA3AB6B0043EEC1;
+						TestTargetID = 57E2B6E72FAB7441006E35F3;
 					};
-					571A73082FA3AB6D0043EEC1 = {
+					57E2B6FE2FAB7443006E35F3 = {
 						CreatedOnToolsVersion = 26.4.1;
-						TestTargetID = 571A72F12FA3AB6B0043EEC1;
+						TestTargetID = 57E2B6E72FAB7441006E35F3;
 					};
 				};
 			};
-			buildConfigurationList = 571A72ED2FA3AB6B0043EEC1 /* Build configuration list for PBXProject "google-sso-sample" */;
+			buildConfigurationList = 57E2B6E32FAB7441006E35F3 /* Build configuration list for PBXProject "common_ui" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 571A72E92FA3AB6B0043EEC1;
+			mainGroup = 57E2B6DF2FAB7441006E35F3;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				57B100052FA3AB6D0043EEC1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				57B100062FA3AB6D0043EEC1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 571A72F32FA3AB6B0043EEC1 /* Products */;
+			productRefGroup = 57E2B6E92FAB7441006E35F3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				571A72F12FA3AB6B0043EEC1 /* google-sso-sample */,
-				571A72FE2FA3AB6D0043EEC1 /* google-sso-sampleTests */,
-				571A73082FA3AB6D0043EEC1 /* google-sso-sampleUITests */,
+				57E2B6E72FAB7441006E35F3 /* common_ui */,
+				57E2B6F42FAB7443006E35F3 /* common_uiTests */,
+				57E2B6FE2FAB7443006E35F3 /* common_uiUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		571A72F02FA3AB6B0043EEC1 /* Resources */ = {
+		57E2B6E62FAB7441006E35F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		571A72FD2FA3AB6D0043EEC1 /* Resources */ = {
+		57E2B6F32FAB7443006E35F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		571A73072FA3AB6D0043EEC1 /* Resources */ = {
+		57E2B6FD2FAB7443006E35F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -261,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		571A72EE2FA3AB6B0043EEC1 /* Sources */ = {
+		57E2B6E42FAB7441006E35F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		571A72FB2FA3AB6D0043EEC1 /* Sources */ = {
+		57E2B6F12FAB7443006E35F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		571A73052FA3AB6D0043EEC1 /* Sources */ = {
+		57E2B6FB2FAB7443006E35F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -285,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		571A73012FA3AB6D0043EEC1 /* PBXTargetDependency */ = {
+		57E2B6F72FAB7443006E35F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 571A72F12FA3AB6B0043EEC1 /* google-sso-sample */;
-			targetProxy = 571A73002FA3AB6D0043EEC1 /* PBXContainerItemProxy */;
+			target = 57E2B6E72FAB7441006E35F3 /* common_ui */;
+			targetProxy = 57E2B6F62FAB7443006E35F3 /* PBXContainerItemProxy */;
 		};
-		571A730B2FA3AB6D0043EEC1 /* PBXTargetDependency */ = {
+		57E2B7012FAB7443006E35F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 571A72F12FA3AB6B0043EEC1 /* google-sso-sample */;
-			targetProxy = 571A730A2FA3AB6D0043EEC1 /* PBXContainerItemProxy */;
+			target = 57E2B6E72FAB7441006E35F3 /* common_ui */;
+			targetProxy = 57E2B7002FAB7443006E35F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		571A73112FA3AB6D0043EEC1 /* Debug */ = {
+		57E2B7072FAB7443006E35F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -362,7 +333,7 @@
 			};
 			name = Debug;
 		};
-		571A73122FA3AB6D0043EEC1 /* Release */ = {
+		57E2B7082FAB7443006E35F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -419,7 +390,7 @@
 			};
 			name = Release;
 		};
-		571A73142FA3AB6D0043EEC1 /* Debug */ = {
+		57E2B70A2FAB7443006E35F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -428,14 +399,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 86HP2LKRVC;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "google-sso-sample/Resources/Info.plist";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.google-sso-sample";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.common-ui";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -447,7 +422,7 @@
 			};
 			name = Debug;
 		};
-		571A73152FA3AB6D0043EEC1 /* Release */ = {
+		57E2B70B2FAB7443006E35F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -456,14 +431,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 86HP2LKRVC;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "google-sso-sample/Resources/Info.plist";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.google-sso-sample";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.common-ui";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -475,7 +454,7 @@
 			};
 			name = Release;
 		};
-		571A73172FA3AB6D0043EEC1 /* Debug */ = {
+		57E2B70D2FAB7443006E35F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,7 +464,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.google-sso-sampleTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.common-uiTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -493,11 +472,11 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/google-sso-sample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/google-sso-sample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/common_ui.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/common_ui";
 			};
 			name = Debug;
 		};
-		571A73182FA3AB6D0043EEC1 /* Release */ = {
+		57E2B70E2FAB7443006E35F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -507,7 +486,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.google-sso-sampleTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.common-uiTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -515,11 +494,11 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/google-sso-sample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/google-sso-sample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/common_ui.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/common_ui";
 			};
 			name = Release;
 		};
-		571A731A2FA3AB6D0043EEC1 /* Debug */ = {
+		57E2B7102FAB7443006E35F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -527,7 +506,7 @@
 				DEVELOPMENT_TEAM = 86HP2LKRVC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.google-sso-sampleUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.common-uiUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -535,11 +514,11 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "google-sso-sample";
+				TEST_TARGET_NAME = common_ui;
 			};
 			name = Debug;
 		};
-		571A731B2FA3AB6D0043EEC1 /* Release */ = {
+		57E2B7112FAB7443006E35F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -547,7 +526,7 @@
 				DEVELOPMENT_TEAM = 86HP2LKRVC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.google-sso-sampleUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.common-uiUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -555,87 +534,50 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "google-sso-sample";
+				TEST_TARGET_NAME = common_ui;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		571A72ED2FA3AB6B0043EEC1 /* Build configuration list for PBXProject "google-sso-sample" */ = {
+		57E2B6E32FAB7441006E35F3 /* Build configuration list for PBXProject "common_ui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				571A73112FA3AB6D0043EEC1 /* Debug */,
-				571A73122FA3AB6D0043EEC1 /* Release */,
+				57E2B7072FAB7443006E35F3 /* Debug */,
+				57E2B7082FAB7443006E35F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		571A73132FA3AB6D0043EEC1 /* Build configuration list for PBXNativeTarget "google-sso-sample" */ = {
+		57E2B7092FAB7443006E35F3 /* Build configuration list for PBXNativeTarget "common_ui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				571A73142FA3AB6D0043EEC1 /* Debug */,
-				571A73152FA3AB6D0043EEC1 /* Release */,
+				57E2B70A2FAB7443006E35F3 /* Debug */,
+				57E2B70B2FAB7443006E35F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		571A73162FA3AB6D0043EEC1 /* Build configuration list for PBXNativeTarget "google-sso-sampleTests" */ = {
+		57E2B70C2FAB7443006E35F3 /* Build configuration list for PBXNativeTarget "common_uiTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				571A73172FA3AB6D0043EEC1 /* Debug */,
-				571A73182FA3AB6D0043EEC1 /* Release */,
+				57E2B70D2FAB7443006E35F3 /* Debug */,
+				57E2B70E2FAB7443006E35F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		571A73192FA3AB6D0043EEC1 /* Build configuration list for PBXNativeTarget "google-sso-sampleUITests" */ = {
+		57E2B70F2FAB7443006E35F3 /* Build configuration list for PBXNativeTarget "common_uiUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				571A731A2FA3AB6D0043EEC1 /* Debug */,
-				571A731B2FA3AB6D0043EEC1 /* Release */,
+				57E2B7102FAB7443006E35F3 /* Debug */,
+				57E2B7112FAB7443006E35F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		57B100052FA3AB6D0043EEC1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.0.0;
-			};
-		};
-		57B100062FA3AB6D0043EEC1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		57B100072FA3AB6D0043EEC1 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57B100052FA3AB6D0043EEC1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		57B100082FA3AB6D0043EEC1 /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57B100052FA3AB6D0043EEC1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
-		57B100092FA3AB6D0043EEC1 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57B100062FA3AB6D0043EEC1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 571A72EA2FA3AB6B0043EEC1 /* Project object */;
+	rootObject = 57E2B6E02FAB7441006E35F3 /* Project object */;
 }

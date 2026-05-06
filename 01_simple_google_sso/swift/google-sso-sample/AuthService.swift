@@ -48,11 +48,16 @@ final class AuthService {
         guard let options = FirebaseOptions(contentsOfFile: filePath) else {
             throw StartupConfigurationError.invalidGoogleServiceInfo
         }
-
+        
+        guard let clientID = options.clientID,
+              let apiKey = options.apiKey else {
+            throw StartupConfigurationError.invalidGoogleServiceInfo
+        }
+        
         let hasPlaceholders = [
             options.googleAppID,
-            options.clientID,
-            options.apiKey,
+            clientID,
+            apiKey,
             options.projectID ?? "",
         ].contains { value in
             value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
@@ -114,10 +119,10 @@ final class AuthService {
             }
 
             let serverClientID = Bundle.main.object(forInfoDictionaryKey: "GIDServerClientID") as? String
-            let normalizedServerClientID = serverClientID?.trimmingCharacters(in: .whitespacesAndNewlines)
+            //let normalizedServerClientID = serverClientID?.trimmingCharacters(in: .whitespacesAndNewlines)
             GIDSignIn.sharedInstance.configuration = GIDConfiguration(
                 clientID: clientID,
-                serverClientID: normalizedServerClientID?.isEmpty == false ? normalizedServerClientID : nil
+                //serverClientID: normalizedServerClientID?.isEmpty == false ? normalizedServerClientID : nil
             )
 
             let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
@@ -166,7 +171,7 @@ final class AuthService {
         }
 
         if nsError.domain == AuthErrorDomain {
-            switch AuthErrorCode(_bridgedNSError: nsError).code {
+            switch AuthErrorCode(_bridgedNSError: nsError)?.code {
             case .accountExistsWithDifferentCredential:
                 return NSError(
                     domain: nsError.domain,

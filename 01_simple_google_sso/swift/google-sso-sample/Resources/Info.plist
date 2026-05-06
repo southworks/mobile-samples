@@ -23,16 +23,18 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Firebase URL</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.YOUR_REVERSED_CLIENT_ID</string>
+				<string>com.googleusercontent.apps.56066682730-p7of9fssd6dd5t4vokvodi5m035u77ub</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>GIDClientID</key>
-	<string>YOUR_IOS_CLIENT_ID.apps.googleusercontent.com</string>
+	<string>56066682730-p7of9fssd6dd5t4vokvodi5m035u77ub.apps.googleusercontent.com</string>
 	<key>GIDServerClientID</key>
 	<string>YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
 	<key>LSRequiresIPhoneOS</key>
