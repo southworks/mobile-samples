@@ -9,16 +9,8 @@ struct LayoutMenuView: View {
     var body: some View {
         NavigationStack {
             List {
-                NavigationLink("VStack") {
-                    VStackExampleView()
-                }
-
-                NavigationLink("HStack") {
-                    HStackExampleView()
-                }
-
-                NavigationLink("ZStack") {
-                    ZStackExampleView()
+                NavigationLink("Stacks") {
+                    StacksExampleView()
                 }
 
                 NavigationLink("ScrollView") {
@@ -28,43 +20,37 @@ struct LayoutMenuView: View {
                 NavigationLink("LazyVStack") {
                     LazyVStackExampleView()
                 }
-
-                NavigationLink("Spacer") {
-                    SpacerExampleView()
-                }
             }
             .navigationTitle("Layout")
         }
     }
 }
 
-private struct VStackExampleView: View {
+private struct StacksExampleView: View {
     var body: some View {
-        ExampleScreen("VStack") {
+        ExampleScreen("Stacks") {
+            Text("VStack")
+                .font(.headline)
             VStack(spacing: 12) {
                 ExampleCard(text: "Top")
                 ExampleCard(text: "Middle")
                 ExampleCard(text: "Bottom")
             }
-        }
-    }
-}
 
-private struct HStackExampleView: View {
-    var body: some View {
-        ExampleScreen("HStack") {
+            Divider()
+
+            Text("HStack")
+                .font(.headline)
             HStack(spacing: 12) {
                 ExampleCard(text: "One")
                 ExampleCard(text: "Two")
                 ExampleCard(text: "Three")
             }
-        }
-    }
-}
 
-private struct ZStackExampleView: View {
-    var body: some View {
-        ExampleScreen("ZStack") {
+            Divider()
+
+            Text("ZStack")
+                .font(.headline)
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.blue.opacity(0.2))
@@ -115,30 +101,5 @@ private struct LazyVStackExampleView: View {
         }
         .navigationTitle("LazyVStack")
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-private struct SpacerExampleView: View {
-    var body: some View {
-        ExampleScreen("Spacer") {
-            HStack {
-                Text("Start")
-                Spacer()
-                Text("End")
-            }
-            .padding()
-            .background(Color(.systemGray6))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-
-            VStack {
-                Text("Top")
-                Spacer()
-                Text("Bottom")
-            }
-            .frame(height: 160)
-            .padding()
-            .background(Color(.systemGray6))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-        }
     }
 }

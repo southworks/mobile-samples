@@ -8,39 +8,17 @@ import SwiftUI
 struct BasicsMenuView: View {
     var body: some View {
         NavigationStack {
-            List {
-                NavigationLink("Text") {
-                    TextExampleView()
-                }
-
-                NavigationLink("Label") {
-                    LabelExampleView()
-                }
-
-                NavigationLink("Image") {
-                    ImageExampleView()
-                }
-
-                NavigationLink("AsyncImage") {
-                    AsyncImageExampleView()
-                }
-
-                NavigationLink("ProgressView") {
-                    ProgressExampleView()
-                }
-
-                NavigationLink("Divider") {
-                    DividerExampleView()
-                }
-            }
-            .navigationTitle("Basics")
+            BasicsExampleView()
         }
     }
 }
 
-private struct TextExampleView: View {
+private struct BasicsExampleView: View {
+    @State private var progress = 0.55
+
     var body: some View {
-        ExampleScreen("Text") {
+        ExampleScreen("Basics") {
+            sectionTitle("Text")
             Text("SwiftUI makes text styling simple.")
                 .font(.title2)
 
@@ -51,25 +29,19 @@ private struct TextExampleView: View {
                 .bold()
                 .italic()
                 .underline()
-        }
-    }
-}
 
-private struct LabelExampleView: View {
-    var body: some View {
-        ExampleScreen("Label") {
+            Divider()
+
+            sectionTitle("Label")
             Label("Favorites", systemImage: "star.fill")
             Label("Downloads", systemImage: "arrow.down.circle")
                 .foregroundStyle(.blue)
             Label("Profile", systemImage: "person.crop.circle")
                 .font(.title3)
-        }
-    }
-}
 
-private struct ImageExampleView: View {
-    var body: some View {
-        ExampleScreen("Image") {
+            Divider()
+
+            sectionTitle("Image")
             Image(systemName: "swift")
                 .resizable()
                 .scaledToFit()
@@ -79,13 +51,10 @@ private struct ImageExampleView: View {
             Image(systemName: "photo.stack")
                 .font(.system(size: 48))
                 .foregroundStyle(.purple)
-        }
-    }
-}
 
-private struct AsyncImageExampleView: View {
-    var body: some View {
-        ExampleScreen("AsyncImage") {
+            Divider()
+
+            sectionTitle("AsyncImage")
             AsyncImage(url: URL(string: "https://picsum.photos/300")) { phase in
                 switch phase {
                 case .empty:
@@ -103,15 +72,10 @@ private struct AsyncImageExampleView: View {
                     EmptyView()
                 }
             }
-        }
-    }
-}
 
-private struct ProgressExampleView: View {
-    @State private var progress = 0.55
+            Divider()
 
-    var body: some View {
-        ExampleScreen("ProgressView") {
+            sectionTitle("ProgressView")
             ProgressView(value: progress)
             ProgressView("Uploading files...", value: progress)
 
@@ -119,13 +83,10 @@ private struct ProgressExampleView: View {
                 progress = min(progress + 0.1, 1.0)
             }
             .buttonStyle(.borderedProminent)
-        }
-    }
-}
 
-private struct DividerExampleView: View {
-    var body: some View {
-        ExampleScreen("Divider") {
+            Divider()
+
+            sectionTitle("Divider")
             Text("Section A")
             Divider()
             Text("Section B")
@@ -137,5 +98,10 @@ private struct DividerExampleView: View {
             }
             .frame(height: 40)
         }
+    }
+
+    private func sectionTitle(_ title: String) -> some View {
+        Text(title)
+            .font(.headline)
     }
 }
