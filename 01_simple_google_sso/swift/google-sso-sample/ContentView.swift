@@ -19,7 +19,7 @@ struct ContentView: View {
 
                     Text(user.email)
                         .font(.body)
-                        .foregroundStyle(.appTextSecondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
 
                     if let errorMessage = viewModel.errorMessage, !errorMessage.isEmpty {
@@ -64,14 +64,14 @@ struct ContentView: View {
             VStack(spacing: 24) {
                 Image(systemName: "person.crop.circle.badge.checkmark")
                     .font(.system(size: 54))
-                    .foregroundStyle(.appPrimary)
+                    .foregroundStyle(.blue)
 
                 Text("Authors Collection")
                     .font(.title.weight(.semibold))
 
                 Text("Inicia sesion con Google para ver la foto de perfil y el mail del usuario autenticado.")
                     .font(.body)
-                    .foregroundStyle(.appTextSecondary)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
 
                 if let errorMessage = viewModel.errorMessage, !errorMessage.isEmpty {
@@ -133,7 +133,7 @@ private struct ProfileAvatar: View {
                     default:
                         Image(systemName: "person.fill")
                             .font(.system(size: 34, weight: .semibold))
-                            .foregroundStyle(.appPrimary)
+                            .foregroundStyle(.blue)
                     }
                 }
                 .frame(width: 76, height: 76)
@@ -141,7 +141,7 @@ private struct ProfileAvatar: View {
             } else {
                 Image(systemName: "person.fill")
                     .font(.system(size: 34, weight: .semibold))
-                    .foregroundStyle(.appPrimary)
+                    .foregroundStyle(.blue)
             }
         }
     }

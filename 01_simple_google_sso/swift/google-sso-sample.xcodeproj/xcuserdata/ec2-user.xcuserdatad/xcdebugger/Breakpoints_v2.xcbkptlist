@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D50E5F0D-C6BE-4DA0-899E-377DD140DE3C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8634D0A8-5CB2-4FBC-B371-FE2EDECF7797"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "google-sso-sample/AuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "signInWithGoogle()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8634D0A8-5CB2-4FBC-B371-FE2EDECF7797 - dfa5b28300441b4e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for google_sso_sample.AuthService.signInWithGoogle() async -&gt; Swift.Result&lt;(), Swift.Error&gt;"
+                  moduleName = "google-sso-sample.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ec2-user/mobile-samples/01_simple_google_sso/swift/google-sso-sample/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+               <Location
+                  uuid = "8634D0A8-5CB2-4FBC-B371-FE2EDECF7797 - c2c3a620c910702e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for google_sso_sample.AuthService.signInWithGoogle() async -&gt; Swift.Result&lt;(), Swift.Error&gt;"
+                  moduleName = "google-sso-sample.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ec2-user/mobile-samples/01_simple_google_sso/swift/google-sso-sample/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+               <Location
+                  uuid = "8634D0A8-5CB2-4FBC-B371-FE2EDECF7797 - 890108acfa6dc748"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for google_sso_sample.AuthService.signInWithGoogle() async -&gt; Swift.Result&lt;(), Swift.Error&gt;"
+                  moduleName = "google-sso-sample.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ec2-user/mobile-samples/01_simple_google_sso/swift/google-sso-sample/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+               <Location
+                  uuid = "8634D0A8-5CB2-4FBC-B371-FE2EDECF7797 - 490e91e661a3ed45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for google_sso_sample.AuthService.signInWithGoogle() async -&gt; Swift.Result&lt;(), Swift.Error&gt;"
+                  moduleName = "google-sso-sample.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ec2-user/mobile-samples/01_simple_google_sso/swift/google-sso-sample/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
