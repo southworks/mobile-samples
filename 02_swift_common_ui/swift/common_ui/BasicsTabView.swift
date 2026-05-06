@@ -19,13 +19,13 @@ private struct BasicsExampleView: View {
     var body: some View {
         ExampleScreen("Basics") {
             sectionTitle("Text")
-            Text("SwiftUI makes text styling simple.")
+            Text("Text with title font.")
                 .font(.title2)
 
-            Text("This line uses a secondary style for supporting information.")
+            Text("Text with secondary style.")
                 .foregroundStyle(.secondary)
 
-            Text("Bold, italic and underlined")
+            Text("Text with bold, italic and underline styles.")
                 .bold()
                 .italic()
                 .underline()
@@ -33,10 +33,10 @@ private struct BasicsExampleView: View {
             Divider()
 
             sectionTitle("Label")
-            Label("Favorites", systemImage: "star.fill")
-            Label("Downloads", systemImage: "arrow.down.circle")
+            Label("Star label", systemImage: "star.fill")
+            Label("Down arrow label", systemImage: "arrow.down.circle")
                 .foregroundStyle(.blue)
-            Label("Profile", systemImage: "person.crop.circle")
+            Label("Person crop label", systemImage: "person.crop.circle")
                 .font(.title3)
 
             Divider()
@@ -79,8 +79,12 @@ private struct BasicsExampleView: View {
             ProgressView(value: progress)
             ProgressView("Uploading files...", value: progress)
 
-            Button("Increase Progress") {
+            Button("Increase") {
                 progress = min(progress + 0.1, 1.0)
+            }
+            .buttonStyle(.borderedProminent)
+            Button("Decrease") {
+                progress = max(progress - 0.1, 0.0)
             }
             .buttonStyle(.borderedProminent)
 
