@@ -8,28 +8,7 @@ import SwiftUI
 struct NavigationExamplesMenuView: View {
     var body: some View {
         NavigationStack {
-            List {
-                NavigationLink("NavigationStack") {
-                    NavigationStackDestinationView()
-                }
-
-                NavigationLink("NavigationLink") {
-                    NavigationLinkDestinationView()
-                }
-
-                NavigationLink("Sheet Navigation") {
-                    SheetNavigationDestinationView()
-                }
-            }
-            .navigationTitle("Navigation")
-        }
-    }
-}
-
-private struct NavigationStackDestinationView: View {
-    var body: some View {
-        NavigationStack {
-            List {
+            VStack(spacing: 20) {
                 Section("Planets") {
                     NavigationLink("Mercury") {
                         DetailMessageView(
@@ -55,79 +34,27 @@ private struct NavigationStackDestinationView: View {
                     }
                 }
             }
-            .navigationTitle("NavigationStack")
-        }
-    }
-}
-
-private struct NavigationLinkDestinationView: View {
-    var body: some View {
-        List {
-            Section("Cities") {
-                NavigationLink("Buenos Aires") {
-                    DetailMessageView(
-                        title: "Buenos Aires",
-                        message: "This destination comes from a NavigationLink inside a list."
-                    )
-                }
-
-                NavigationLink("Tokyo") {
-                    DetailMessageView(
-                        title: "Tokyo",
-                        message: "Each NavigationLink can open a different detail."
-                    )
-                }
-
-                NavigationLink("Madrid") {
-                    DetailMessageView(
-                        title: "Madrid",
-                        message: "This is a third destination to compare link behavior."
-                    )
-                }
-            }
-        }
-        .navigationTitle("NavigationLink")
-        .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-private struct SheetNavigationDestinationView: View {
-    @State private var showSheet = false
-
-    var body: some View {
-        ExampleScreen("Sheet Navigation") {
-            Text("This example opens a sheet that contains its own navigation flow based on a list.")
-                .foregroundStyle(.secondary)
-
-            Button("Open Sheet") {
-                showSheet = true
-            }
-            .buttonStyle(.borderedProminent)
-        }
-        .sheet(isPresented: $showSheet) {
-            NavigationStack {
-                List {
-                    Section("Courses") {
-                        NavigationLink("SwiftUI Basics") {
-                            DetailMessageView(
-                                title: "SwiftUI Basics",
-                                message: "This detail is being shown inside a sheet-hosted NavigationStack."
-                            )
-                        }
-
-                        NavigationLink("State Management") {
-                            DetailMessageView(
-                                title: "State Management",
-                                message: "A second destination inside the same sheet example."
-                            )
+            .navigationTitle("Navigation")
+            .sheet(isPresented: $showSheet) {
+                NavigationStack {
+                    List {
+                        Section("Courses") {
+                            for i in 0...10 {
+                                NavigationLink("SwiftUI Basics") {
+                                    DetailMessageView(
+                                        title: "Navigation \(i)",
+                                        message: "Detail message for navigation \(i)."
+                                    )
+                                }
+                            }
                         }
                     }
-                }
-                .navigationTitle("Sheet")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button("Done") {
-                            showSheet = false
+                    .navigationTitle("Sheet")
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button("Done") {
+                                showSheet = false
+                            }
                         }
                     }
                 }
