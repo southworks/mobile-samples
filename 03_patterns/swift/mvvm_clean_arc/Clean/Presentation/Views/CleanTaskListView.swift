@@ -42,8 +42,3 @@ struct CleanTaskListView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        CleanTaskListView(viewModel: Dependencies.makeTaskListViewModel())
-    }
-}
