@@ -1,13 +1,21 @@
 import SwiftUI
 
-struct CleanTaskListView: View {
+struct CleanTaskListScreen: View {
     @StateObject private var viewModel: CleanTaskListViewModel
-    @State private var isShowingCreateTaskAlert = false
-    @State private var newTaskTitle = ""
 
-    init(viewModel: CleanTaskListViewModel) {
+    init(viewModel: CleanTaskListViewModel = Dependencies.makeTaskListViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
+
+    var body: some View {
+        CleanTaskListView(viewModel: viewModel)
+    }
+}
+
+struct CleanTaskListView: View {
+    @ObservedObject var viewModel: CleanTaskListViewModel
+    @State private var isShowingCreateTaskAlert = false
+    @State private var newTaskTitle = ""
 
     var body: some View {
         List {
@@ -43,6 +51,6 @@ struct CleanTaskListView: View {
 
 #Preview {
     NavigationStack {
-        CleanTaskListView(viewModel: Dependencies.makeTaskListViewModel())
+        CleanTaskListScreen()
     }
 }
