@@ -9,7 +9,7 @@ struct RootView: View {
                 }
 
                 NavigationLink("Clean Arc Task Manager") {
-                    CleanTaskListScreen()
+                    CleanTaskListView(viewModel: Dependencies.makeTaskListViewModel())
                 }
             }
             .navigationTitle("Task Manager")

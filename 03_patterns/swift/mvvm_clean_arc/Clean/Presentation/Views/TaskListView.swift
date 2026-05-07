@@ -1,21 +1,13 @@
 import SwiftUI
 
-struct CleanTaskListScreen: View {
-    @StateObject private var viewModel: CleanTaskListViewModel
-
-    init(viewModel: CleanTaskListViewModel = Dependencies.makeTaskListViewModel()) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
-
-    var body: some View {
-        CleanTaskListView(viewModel: viewModel)
-    }
-}
-
 struct CleanTaskListView: View {
-    @ObservedObject var viewModel: CleanTaskListViewModel
+    @StateObject private var viewModel: CleanTaskListViewModel
     @State private var isShowingCreateTaskAlert = false
     @State private var newTaskTitle = ""
+
+    init(viewModel: CleanTaskListViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         List {
@@ -24,6 +16,7 @@ struct CleanTaskListView: View {
             }
             .onDelete(perform: viewModel.deleteTask)
         }
+        .onAppear(perform: viewModel.loadTasks)
         .navigationTitle("Clean Arc")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -51,6 +44,6 @@ struct CleanTaskListView: View {
 
 #Preview {
     NavigationStack {
-        CleanTaskListScreen()
+        CleanTaskListView(viewModel: Dependencies.makeTaskListViewModel())
     }
 }
