@@ -5,14 +5,6 @@ struct APICacheView: View {
 
     var body: some View {
         Form {
-            Section {
-                InfoBoxView(
-                    title: "API + Cache",
-                    storageLocation: "The user comes from URLSession, then the JSON response is cached in the Caches directory.",
-                    persistence: "Cache data can survive restarts, but iOS may clear it when space is needed."
-                )
-            }
-
             Section("User") {
                 if let user = viewModel.user {
                     LabeledContent("Name", value: user.name)

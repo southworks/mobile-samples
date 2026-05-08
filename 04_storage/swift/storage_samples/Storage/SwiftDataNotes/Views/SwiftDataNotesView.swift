@@ -8,14 +8,6 @@ struct SwiftDataNotesView: View {
 
     var body: some View {
         Form {
-            Section {
-                InfoBoxView(
-                    title: "SwiftData",
-                    storageLocation: "Stored in the app's local SwiftData database using @Model and modelContainer.",
-                    persistence: "Persists across launches until records are deleted or the app is removed."
-                )
-            }
-
             Section("Add Note") {
                 TextField("Note title", text: $title)
                 Button("Save Note") {

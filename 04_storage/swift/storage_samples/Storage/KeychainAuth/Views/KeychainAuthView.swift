@@ -5,14 +5,6 @@ struct KeychainAuthView: View {
 
     var body: some View {
         Form {
-            Section {
-                InfoBoxView(
-                    title: "Keychain",
-                    storageLocation: "Stored securely by Keychain Services outside normal app files.",
-                    persistence: "Usually persists across launches and can remain until explicitly deleted or the app/keychain state is removed."
-                )
-            }
-
             Section("Fake Token") {
                 TextField("Enter token", text: $viewModel.tokenInput)
                     .textInputAutocapitalization(.never)
