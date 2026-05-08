@@ -64,3 +64,4 @@ fastlane/test_output
 
 
 /01_simple_google_sso/kotlin/.kotlin
+*.xcuserstate
