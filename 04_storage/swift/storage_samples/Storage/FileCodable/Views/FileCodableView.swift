@@ -12,6 +12,10 @@ struct FileCodableView: View {
                 Button("Save Note") {
                     viewModel.saveNote()
                 }
+
+                Button("Clear Input", role: .destructive) {
+                    viewModel.draftText = ""
+                }
             }
 
             Section("Read Note") {

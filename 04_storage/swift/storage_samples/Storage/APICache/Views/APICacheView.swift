@@ -6,22 +6,25 @@ struct APICacheView: View {
     var body: some View {
         Form {
             Section("User") {
-                if let user = viewModel.user {
-                    LabeledContent("Name", value: user.name)
-                    LabeledContent("Email", value: user.email)
-                } else {
-                    Text("No user loaded yet.")
-                        .foregroundStyle(.secondary)
-                }
+                LabeledContent("Name", value: viewModel.user?.name ?? "")
+                LabeledContent("Email", value: viewModel.user?.email ?? "")
             }
 
             Section {
                 Button(viewModel.isLoading ? "Loading..." : "Fetch User") {
                     Task {
-                        await viewModel.loadUser()
+                        await viewModel.fetchUser()
                     }
                 }
                 .disabled(viewModel.isLoading)
+
+                Button("Save to Cache") {
+                    viewModel.saveCurrentUserToCache()
+                }
+
+                Button("Load from Cache") {
+                    viewModel.loadUserFromCache()
+                }
             }
 
             Section("Status") {
@@ -30,10 +33,6 @@ struct APICacheView: View {
             }
         }
         .navigationTitle("API + Cache")
-        .task {
-            guard viewModel.user == nil, !viewModel.isLoading else { return }
-            await viewModel.loadUser()
-        }
     }
 }
 
