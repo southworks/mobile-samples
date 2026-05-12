@@ -1,3 +1,4 @@
+import SwiftData
 import SwiftUI
 
 struct RootView: View {
@@ -42,6 +43,6 @@ struct RootView: View {
 }
 
 #Preview {
-    DashboardView()
+    RootView()
         .modelContainer(for: SwiftDataNote.self, inMemory: true)
 }
