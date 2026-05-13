@@ -21,9 +21,6 @@ struct SavedCanvasExampleView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Canvas + SwiftData")
-                .font(.title2.weight(.semibold))
-            
             HStack {
                 Button("Guardar", systemImage: "square.and.arrow.down") {
                     saveDrawing()

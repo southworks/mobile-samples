@@ -13,9 +13,6 @@ struct SimpleCanvasExampleView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Canvas simple")
-                .font(.title2.weight(.semibold))
-
             PencilCanvasView(drawing: $drawing)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
@@ -26,7 +23,7 @@ struct SimpleCanvasExampleView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .navigationTitle("Canvas simple")
+        .navigationTitle("Simple Canvas")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

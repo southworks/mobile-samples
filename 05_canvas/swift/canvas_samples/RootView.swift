@@ -16,7 +16,7 @@ struct RootView: View {
                         SimpleCanvasExampleView()
                     } label: {
                         Row(
-                            title: "Canvas simple",
+                            title: "Simple Canvas",
                             systemImage: "pencil.and.scribble"
                         )
                     }
@@ -34,7 +34,7 @@ struct RootView: View {
                         InfiniteCanvasExampleView()
                     } label: {
                         Row(
-                            title: "Canvas infinito",
+                            title: "Infinite Canvas",
                             systemImage: "arrow.up.left.and.arrow.down.right"
                         )
                     }

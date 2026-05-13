@@ -19,7 +19,7 @@ final class SavedDrawing {
     var drawingData: Data
 
     init(
-        title: String = "Ejemplo SwiftData",
+        title: String = "SwiftData example",
         createdAt: Date = .now,
         updatedAt: Date = .now,
         drawingData: Data = PKDrawing().dataRepresentation()
