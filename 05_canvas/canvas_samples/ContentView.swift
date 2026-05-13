@@ -6,56 +6,81 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    var body: some View {
+        NavigationStack {
+            List {
+                Section("Ejemplos") {
+                    NavigationLink {
+                        SimpleCanvasExampleView()
+                    } label: {
+                        ExampleRow(
+                            title: "Canvas simple",
+                            subtitle: "Dibujo libre con PencilKit integrado en SwiftUI.",
+                            systemImage: "pencil.and.scribble"
+                        )
+                    }
+
+                    NavigationLink {
+                        SavedCanvasExampleView()
+                    } label: {
+                        ExampleRow(
+                            title: "Canvas + SwiftData",
+                            subtitle: "Carga y guarda el dibujo usando SwiftData.",
+                            systemImage: "externaldrive.badge.checkmark"
+                        )
+                    }
+
+                    NavigationLink {
+                        InfiniteCanvasExampleView()
+                    } label: {
+                        ExampleRow(
+                            title: "Canvas infinito",
+                            subtitle: "Un lienzo enorme centrado en el medio para pan y zoom.",
+                            systemImage: "arrow.up.left.and.arrow.down.right"
+                        )
+                    }
+                }
+
+                Section("Notas") {
+                    Text("Los tres ejemplos usan PencilKit. El segundo persiste `PKDrawing.dataRepresentation()` y el tercero crea un lienzo gigante inspirado en la idea de ubicar al usuario en el centro del area de dibujo.")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .navigationTitle("Canvas Samples")
+        }
+    }
+}
+
+private struct ExampleRow: View {
+    let title: String
+    let subtitle: String
+    let systemImage: String
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
+        HStack(alignment: .top, spacing: 14) {
+            Image(systemName: systemImage)
+                .font(.title2)
+                .frame(width: 28)
+                .foregroundStyle(.accent)
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.headline)
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+                Text(subtitle)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
             }
+            .padding(.vertical, 2)
         }
+        .padding(.vertical, 4)
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: SavedDrawing.self, inMemory: true)
 }
