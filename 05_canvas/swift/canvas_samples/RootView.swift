@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  canvas_samples
 //
 //  Created by ec2-user on 5/12/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
     var body: some View {
         NavigationStack {
             List {
@@ -15,9 +15,8 @@ struct ContentView: View {
                     NavigationLink {
                         SimpleCanvasExampleView()
                     } label: {
-                        ExampleRow(
+                        Row(
                             title: "Canvas simple",
-                            subtitle: "Dibujo libre con PencilKit integrado en SwiftUI.",
                             systemImage: "pencil.and.scribble"
                         )
                     }
@@ -25,9 +24,8 @@ struct ContentView: View {
                     NavigationLink {
                         SavedCanvasExampleView()
                     } label: {
-                        ExampleRow(
+                        Row(
                             title: "Canvas + SwiftData",
-                            subtitle: "Carga y guarda el dibujo usando SwiftData.",
                             systemImage: "externaldrive.badge.checkmark"
                         )
                     }
@@ -35,18 +33,11 @@ struct ContentView: View {
                     NavigationLink {
                         InfiniteCanvasExampleView()
                     } label: {
-                        ExampleRow(
+                        Row(
                             title: "Canvas infinito",
-                            subtitle: "Un lienzo enorme centrado en el medio para pan y zoom.",
                             systemImage: "arrow.up.left.and.arrow.down.right"
                         )
                     }
-                }
-
-                Section("Notas") {
-                    Text("Los tres ejemplos usan PencilKit. El segundo persiste `PKDrawing.dataRepresentation()` y el tercero crea un lienzo gigante inspirado en la idea de ubicar al usuario en el centro del area de dibujo.")
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
                 }
             }
             .navigationTitle("Canvas Samples")
@@ -54,9 +45,8 @@ struct ContentView: View {
     }
 }
 
-private struct ExampleRow: View {
+private struct Row: View {
     let title: String
-    let subtitle: String
     let systemImage: String
 
     var body: some View {
@@ -69,10 +59,6 @@ private struct ExampleRow: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.headline)
-
-                Text(subtitle)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
             }
             .padding(.vertical, 2)
         }

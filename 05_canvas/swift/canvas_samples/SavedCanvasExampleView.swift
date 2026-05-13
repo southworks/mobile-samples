@@ -23,11 +23,7 @@ struct SavedCanvasExampleView: View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Canvas + SwiftData")
                 .font(.title2.weight(.semibold))
-
-            Text("El dibujo se serializa con `PKDrawing.dataRepresentation()` y se restaura desde SwiftData. El boton Guardar persiste el estado actual y tambien se hace guardado automatico al salir de la pantalla.")
-                .font(.callout)
-                .foregroundStyle(.secondary)
-
+            
             HStack {
                 Button("Guardar", systemImage: "square.and.arrow.down") {
                     saveDrawing()

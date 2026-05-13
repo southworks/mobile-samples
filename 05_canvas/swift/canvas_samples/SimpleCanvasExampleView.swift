@@ -16,10 +16,6 @@ struct SimpleCanvasExampleView: View {
             Text("Canvas simple")
                 .font(.title2.weight(.semibold))
 
-            Text("Este ejemplo muestra la integracion minima de `PencilKit` dentro de SwiftUI. El canvas vive en estado local y no persiste cambios.")
-                .font(.callout)
-                .foregroundStyle(.secondary)
-
             PencilCanvasView(drawing: $drawing)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))

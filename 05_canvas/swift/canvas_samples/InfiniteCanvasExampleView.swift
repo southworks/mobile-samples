@@ -16,10 +16,6 @@ struct InfiniteCanvasExampleView: View {
             Text("Canvas infinito")
                 .font(.title2.weight(.semibold))
 
-            Text("Este ejemplo crea un lienzo muy grande y posiciona la camara en el centro para poder desplazarte en cualquier direccion. La idea sigue el enfoque del proyecto InfiniteCanvas: un canvas gigantesco que, en practica, se siente infinito.")
-                .font(.callout)
-                .foregroundStyle(.secondary)
-
             HStack(spacing: 12) {
                 Label("Pan con dos dedos", systemImage: "hand.draw")
                 Label("Zoom con pinza", systemImage: "plus.magnifyingglass")
