@@ -64,7 +64,7 @@ private struct ExampleRow: View {
             Image(systemName: systemImage)
                 .font(.title2)
                 .frame(width: 28)
-                .foregroundStyle(.accent)
+                .foregroundStyle(.orange)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
@@ -78,9 +78,4 @@ private struct ExampleRow: View {
         }
         .padding(.vertical, 4)
     }
-}
-
-#Preview {
-    ContentView()
-        .modelContainer(for: SavedDrawing.self, inMemory: true)
 }
