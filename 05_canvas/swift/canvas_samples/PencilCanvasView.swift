@@ -69,9 +69,9 @@ struct PencilCanvasView: UIViewRepresentable {
     }
 }
 
-struct InfinitePencilCanvasView: UIViewRepresentable {
+struct MassivePencilCanvasView: UIViewRepresentable {
     @Binding var drawing: PKDrawing
-    var canvasSize = CGSize(width: 20_000, height: 20_000)
+    var canvasSize = CGSize(width: 40_000, height: 40_000)
     func makeCoordinator() -> Coordinator { Coordinator(self) }
     func makeUIView(context: Context) -> HostView {
         let view = HostView()
@@ -80,7 +80,6 @@ struct InfinitePencilCanvasView: UIViewRepresentable {
         view.drawingPolicy = .anyInput
         view.backgroundColor = UIColor(patternImage: Self.grid())
         view.contentSize = canvasSize
-        view.minimumZoomScale = 0.2
         view.maximumZoomScale = 4
         view.bouncesZoom = true
         view.alwaysBounceVertical = true
@@ -92,13 +91,14 @@ struct InfinitePencilCanvasView: UIViewRepresentable {
     func updateUIView(_ uiView: HostView, context: Context) {
         if uiView.drawing.dataRepresentation() != drawing.dataRepresentation() { uiView.drawing = drawing }
         uiView.contentSize = canvasSize
+        uiView.updateMinimumZoomScale()
         context.coordinator.activateToolPickerIfNeeded(for: uiView)
     }
     final class Coordinator: NSObject, PKCanvasViewDelegate {
-        var parent: InfinitePencilCanvasView
+        var parent: MassivePencilCanvasView
         private let picker = PKToolPicker()
         private var attached = false
-        init(_ parent: InfinitePencilCanvasView) { self.parent = parent }
+        init(_ parent: MassivePencilCanvasView) { self.parent = parent }
         func activateToolPickerIfNeeded(for canvasView: PKCanvasView) {
             guard canvasView.window != nil else { return }
             if !attached { picker.addObserver(canvasView); attached = true }
@@ -111,9 +111,14 @@ struct InfinitePencilCanvasView: UIViewRepresentable {
         private var centered = false
         override func layoutSubviews() {
             super.layoutSubviews()
+            updateMinimumZoomScale()
             guard !centered, bounds.width > 0, bounds.height > 0 else { return }
             setContentOffset(CGPoint(x: max((contentSize.width - bounds.width) / 2, 0), y: max((contentSize.height - bounds.height) / 2, 0)), animated: false)
             centered = true
+        }
+        func updateMinimumZoomScale() {
+            guard bounds.width > 0, bounds.height > 0, contentSize.width > 0, contentSize.height > 0 else { return }
+            minimumZoomScale = min(bounds.width / contentSize.width, bounds.height / contentSize.height)
         }
     }
     static func grid(step: CGFloat = 40) -> UIImage {

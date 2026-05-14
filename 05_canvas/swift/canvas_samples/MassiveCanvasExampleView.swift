@@ -1,5 +1,5 @@
 //
-//  InfiniteCanvasExampleView.swift
+//  MassiveCanvasExampleView.swift
 //  canvas_samples
 //
 //  Created by ec2-user on 5/12/26.
@@ -8,12 +8,12 @@
 import PencilKit
 import SwiftUI
 
-struct InfiniteCanvasExampleView: View {
+struct MassiveCanvasExampleView: View {
     @State private var drawing = PKDrawing()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            InfinitePencilCanvasView(drawing: $drawing)
+            MassivePencilCanvasView(drawing: $drawing)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .overlay {
@@ -23,13 +23,13 @@ struct InfiniteCanvasExampleView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .navigationTitle("Infinite Canvas")
+        .navigationTitle("Massive Canvas")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
     NavigationStack {
-        InfiniteCanvasExampleView()
+        MassiveCanvasExampleView()
     }
 }

@@ -31,10 +31,10 @@ struct RootView: View {
                     }
 
                     NavigationLink {
-                        InfiniteCanvasExampleView()
+                        MassiveCanvasExampleView()
                     } label: {
                         Row(
-                            title: "Infinite Canvas",
+                            title: "Massive Canvas",
                             systemImage: "arrow.up.left.and.arrow.down.right"
                         )
                     }
