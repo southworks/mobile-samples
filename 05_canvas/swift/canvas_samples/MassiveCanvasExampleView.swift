@@ -15,6 +15,12 @@ struct MassiveCanvasExampleView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
+            Picker("Modo", selection: $controller.mode) {
+                Text("Dibujar").tag(MassiveCanvasMode.draw)
+                Text("Editar formas").tag(MassiveCanvasMode.edit)
+            }
+            .pickerStyle(.segmented)
+
             HStack {
                 Button("Rectangulo", systemImage: "rectangle") {
                     controller.insertRectangle()
@@ -30,6 +36,14 @@ struct MassiveCanvasExampleView: View {
                     controller.insertArrow()
                 }
                 .buttonStyle(.bordered)
+
+                if controller.mode == .edit, controller.selectedItemID != nil {
+                    Button("Eliminar", systemImage: "trash") {
+                        controller.items.removeAll { $0.id == controller.selectedItemID }
+                        controller.selectedItemID = nil
+                    }
+                    .buttonStyle(.bordered)
+                }
 
                 Spacer()
 
@@ -52,6 +66,12 @@ struct MassiveCanvasExampleView: View {
                     RoundedRectangle(cornerRadius: 20, style: .continuous)
                         .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
                 }
+
+            if controller.mode == .edit {
+                Text("Toca una forma para seleccionarla. Arrastra para moverla y usa las esquinas para cambiar su tamaño.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
