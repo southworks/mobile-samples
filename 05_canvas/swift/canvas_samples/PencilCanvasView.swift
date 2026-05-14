@@ -71,103 +71,58 @@ struct PencilCanvasView: UIViewRepresentable {
 
 struct InfinitePencilCanvasView: UIViewRepresentable {
     @Binding var drawing: PKDrawing
-
-    var canvasSize: CGSize = CGSize(width: 20_000, height: 20_000)
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+    var canvasSize = CGSize(width: 20_000, height: 20_000)
+    func makeCoordinator() -> Coordinator { Coordinator(self) }
+    func makeUIView(context: Context) -> HostView {
+        let view = HostView()
+        view.delegate = context.coordinator
+        view.drawing = drawing
+        view.drawingPolicy = .anyInput
+        view.backgroundColor = UIColor(patternImage: Self.grid())
+        view.contentSize = canvasSize
+        view.minimumZoomScale = 0.2
+        view.maximumZoomScale = 4
+        view.bouncesZoom = true
+        view.alwaysBounceVertical = true
+        view.alwaysBounceHorizontal = true
+        view.showsVerticalScrollIndicator = true
+        view.showsHorizontalScrollIndicator = true
+        return view
     }
-
-    func makeUIView(context: Context) -> InfiniteCanvasHostingView {
-        let canvasView = InfiniteCanvasHostingView()
-        canvasView.delegate = context.coordinator
-        canvasView.drawing = drawing
-        canvasView.drawingPolicy = .anyInput
-        canvasView.backgroundColor = UIColor(patternImage: GridPattern.make())
-        canvasView.contentSize = canvasSize
-        canvasView.minimumZoomScale = 0.2
-        canvasView.maximumZoomScale = 4
-        canvasView.bouncesZoom = true
-        canvasView.alwaysBounceVertical = true
-        canvasView.alwaysBounceHorizontal = true
-        canvasView.showsVerticalScrollIndicator = true
-        canvasView.showsHorizontalScrollIndicator = true
-        return canvasView
-    }
-
-    func updateUIView(_ uiView: InfiniteCanvasHostingView, context: Context) {
-        if uiView.drawing.dataRepresentation() != drawing.dataRepresentation() {
-            uiView.drawing = drawing
-        }
-
+    func updateUIView(_ uiView: HostView, context: Context) {
+        if uiView.drawing.dataRepresentation() != drawing.dataRepresentation() { uiView.drawing = drawing }
         uiView.contentSize = canvasSize
         context.coordinator.activateToolPickerIfNeeded(for: uiView)
     }
-
     final class Coordinator: NSObject, PKCanvasViewDelegate {
         var parent: InfinitePencilCanvasView
-        private let toolPicker = PKToolPicker()
-        private var isToolPickerAttached = false
-
-        init(_ parent: InfinitePencilCanvasView) {
-            self.parent = parent
-        }
-
+        private let picker = PKToolPicker()
+        private var attached = false
+        init(_ parent: InfinitePencilCanvasView) { self.parent = parent }
         func activateToolPickerIfNeeded(for canvasView: PKCanvasView) {
             guard canvasView.window != nil else { return }
-
-            if !isToolPickerAttached {
-                toolPicker.addObserver(canvasView)
-                isToolPickerAttached = true
-            }
-
-            toolPicker.setVisible(true, forFirstResponder: canvasView)
+            if !attached { picker.addObserver(canvasView); attached = true }
+            picker.setVisible(true, forFirstResponder: canvasView)
             canvasView.becomeFirstResponder()
         }
-
-        func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-            parent.drawing = canvasView.drawing
+        func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) { parent.drawing = canvasView.drawing }
+    }
+    final class HostView: PKCanvasView {
+        private var centered = false
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            guard !centered, bounds.width > 0, bounds.height > 0 else { return }
+            setContentOffset(CGPoint(x: max((contentSize.width - bounds.width) / 2, 0), y: max((contentSize.height - bounds.height) / 2, 0)), animated: false)
+            centered = true
         }
     }
-}
-
-final class InfiniteCanvasHostingView: PKCanvasView {
-    private var didCenterInitialViewport = false
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        guard !didCenterInitialViewport, bounds.width > 0, bounds.height > 0 else { return }
-
-        // Start in the middle so the user can move in every direction.
-        let centeredOffset = CGPoint(
-            x: max((contentSize.width - bounds.width) / 2, 0),
-            y: max((contentSize.height - bounds.height) / 2, 0)
-        )
-
-        setContentOffset(centeredOffset, animated: false)
-        didCenterInitialViewport = true
-    }
-}
-
-enum GridPattern {
-    static func make(step: CGFloat = 40) -> UIImage {
-        let format = UIGraphicsImageRendererFormat.default()
-        format.opaque = true
-
-        return UIGraphicsImageRenderer(size: CGSize(width: step, height: step), format: format).image { context in
-            let cgContext = context.cgContext
-            UIColor.systemBackground.setFill()
-            cgContext.fill(CGRect(origin: .zero, size: CGSize(width: step, height: step)))
-
-            cgContext.setStrokeColor(UIColor.systemGray5.cgColor)
-            cgContext.setLineWidth(1)
-
-            cgContext.move(to: CGPoint(x: step, y: 0))
-            cgContext.addLine(to: CGPoint(x: step, y: step))
-            cgContext.move(to: CGPoint(x: 0, y: step))
-            cgContext.addLine(to: CGPoint(x: step, y: step))
-            cgContext.strokePath()
+    static func grid(step: CGFloat = 40) -> UIImage {
+        let format = UIGraphicsImageRendererFormat.default(); format.opaque = true
+        return UIGraphicsImageRenderer(size: CGSize(width: step, height: step), format: format).image { ctx in
+            UIColor.systemBackground.setFill(); ctx.cgContext.fill(CGRect(origin: .zero, size: CGSize(width: step, height: step)))
+            ctx.cgContext.setStrokeColor(UIColor.systemGray5.cgColor); ctx.cgContext.setLineWidth(1)
+            ctx.cgContext.move(to: CGPoint(x: step, y: 0)); ctx.cgContext.addLine(to: CGPoint(x: step, y: step))
+            ctx.cgContext.move(to: CGPoint(x: 0, y: step)); ctx.cgContext.addLine(to: CGPoint(x: step, y: step)); ctx.cgContext.strokePath()
         }
     }
 }
