@@ -34,7 +34,7 @@ struct RootView: View {
                         MassiveCanvasExampleView()
                     } label: {
                         Row(
-                            title: "Massive Canvas",
+                            title: "Massive Canvas + Diagram",
                             systemImage: "arrow.up.left.and.arrow.down.right"
                         )
                     }

@@ -13,6 +13,7 @@ struct canvas_samplesApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             SavedDrawing.self,
+            BoardDocument.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
