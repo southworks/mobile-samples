@@ -67,17 +67,18 @@ private struct ExcalidrawWebView: UIViewRepresentable {
         webView.navigationDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = false
         webView.scrollView.contentInsetAdjustmentBehavior = .never
-        webView.load(URLRequest(url: url))
         return webView
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        guard uiView.url != url else { return }
+        if context.coordinator.lastRequestedURL == url { return }
+        context.coordinator.lastRequestedURL = url
         uiView.load(URLRequest(url: url))
     }
 
     final class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler, HostedWebViewConsoleHandling {
         var parent: ExcalidrawWebView
+        var lastRequestedURL: URL?
 
         init(parent: ExcalidrawWebView) {
             self.parent = parent
