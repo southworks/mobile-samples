@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WebKit
+internal import os
 
 struct HostedExcalidrawExampleView: View {
     @State private var pageTitle = "Loading..."
@@ -75,7 +76,7 @@ private struct ExcalidrawWebView: UIViewRepresentable {
         uiView.load(URLRequest(url: url))
     }
 
-    final class Coordinator: NSObject, WKNavigationDelegate, HostedWebViewConsoleHandling {
+    final class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler, HostedWebViewConsoleHandling {
         var parent: ExcalidrawWebView
 
         init(parent: ExcalidrawWebView) {
@@ -116,17 +117,28 @@ private struct ExcalidrawWebView: UIViewRepresentable {
                 break
             }
         }
+
+        func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+            guard message.name == HostedWebViewConsoleHelper.handlerName else { return }
+            if let body = message.body as? [String: Any] {
+                let level = body["level"] as? String ?? "log"
+                let values = body["values"] as? [String] ?? []
+                handleConsoleMessage(level: level, values: values)
+            } else {
+                handleConsoleMessage(level: "log", values: [String(describing: message.body)])
+            }
+        }
     }
 }
 
-private protocol HostedWebViewConsoleHandling: WKScriptMessageHandler {
+private protocol HostedWebViewConsoleHandling: AnyObject {
     func handleConsoleMessage(level: String, values: [String])
 }
 
 private enum HostedWebViewConsoleHelper {
     static let handlerName = "canvasConsole"
 
-    static func install(on controller: WKUserContentController, handler: any HostedWebViewConsoleHandling) {
+    static func install(on controller: WKUserContentController, handler: any HostedWebViewConsoleHandling & WKScriptMessageHandler) {
         controller.add(handler, name: handlerName)
         controller.addUserScript(WKUserScript(
             source: """
@@ -152,19 +164,6 @@ private enum HostedWebViewConsoleHelper {
             injectionTime: .atDocumentStart,
             forMainFrameOnly: false
         ))
-    }
-}
-
-private extension HostedWebViewConsoleHandling {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard message.name == HostedWebViewConsoleHelper.handlerName else { return }
-        if let body = message.body as? [String: Any] {
-            let level = body["level"] as? String ?? "log"
-            let values = body["values"] as? [String] ?? []
-            handleConsoleMessage(level: level, values: values)
-        } else {
-            handleConsoleMessage(level: "log", values: [String(describing: message.body)])
-        }
     }
 }
 
