@@ -60,6 +60,7 @@ private struct ExcalidrawWebView: UIViewRepresentable {
         let configuration = WKWebViewConfiguration()
         configuration.allowsInlineMediaPlayback = true
         configuration.defaultWebpagePreferences.allowsContentJavaScript = true
+        HostedWebViewConsoleHelper.install(on: configuration.userContentController, handler: context.coordinator)
 
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.navigationDelegate = context.coordinator
@@ -74,7 +75,7 @@ private struct ExcalidrawWebView: UIViewRepresentable {
         uiView.load(URLRequest(url: url))
     }
 
-    final class Coordinator: NSObject, WKNavigationDelegate {
+    final class Coordinator: NSObject, WKNavigationDelegate, HostedWebViewConsoleHandling {
         var parent: ExcalidrawWebView
 
         init(parent: ExcalidrawWebView) {
@@ -93,11 +94,76 @@ private struct ExcalidrawWebView: UIViewRepresentable {
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
             parent.isLoading = false
             parent.pageTitle = "Failed to Load"
+            AppLogger.webView.error("didFail error=\(error.localizedDescription, privacy: .public)")
+            AppLogger.webView.error("didFail details=\(String(describing: error), privacy: .public)")
         }
 
         func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
             parent.isLoading = false
             parent.pageTitle = "Failed to Load"
+            AppLogger.webView.error("didFailProvisionalNavigation error=\(error.localizedDescription, privacy: .public)")
+            AppLogger.webView.error("didFailProvisionalNavigation details=\(String(describing: error), privacy: .public)")
+        }
+
+        func handleConsoleMessage(level: String, values: [String]) {
+            let message = values.joined(separator: " ")
+            switch level {
+            case "error":
+                AppLogger.webView.error("console.error \(message, privacy: .public)")
+            case "warn":
+                AppLogger.webView.error("console.warn \(message, privacy: .public)")
+            default:
+                break
+            }
+        }
+    }
+}
+
+private protocol HostedWebViewConsoleHandling: WKScriptMessageHandler {
+    func handleConsoleMessage(level: String, values: [String])
+}
+
+private enum HostedWebViewConsoleHelper {
+    static let handlerName = "canvasConsole"
+
+    static func install(on controller: WKUserContentController, handler: any HostedWebViewConsoleHandling) {
+        controller.add(handler, name: handlerName)
+        controller.addUserScript(WKUserScript(
+            source: """
+            (function() {
+              const levels = ['log', 'info', 'warn', 'error'];
+              levels.forEach(function(level) {
+                const original = console[level];
+                console[level] = function() {
+                  try {
+                    window.webkit.messageHandlers.\(handlerName).postMessage({
+                      level: level,
+                      values: Array.from(arguments).map(function(value) {
+                        if (typeof value === 'string') return value;
+                        try { return JSON.stringify(value); } catch (_) { return String(value); }
+                      })
+                    });
+                  } catch (_) {}
+                  original.apply(console, arguments);
+                };
+              });
+            })();
+            """,
+            injectionTime: .atDocumentStart,
+            forMainFrameOnly: false
+        ))
+    }
+}
+
+private extension HostedWebViewConsoleHandling {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        guard message.name == HostedWebViewConsoleHelper.handlerName else { return }
+        if let body = message.body as? [String: Any] {
+            let level = body["level"] as? String ?? "log"
+            let values = body["values"] as? [String] ?? []
+            handleConsoleMessage(level: level, values: values)
+        } else {
+            handleConsoleMessage(level: "log", values: [String(describing: message.body)])
         }
     }
 }
