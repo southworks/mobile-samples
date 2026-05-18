@@ -38,6 +38,15 @@ struct RootView: View {
                             systemImage: "arrow.up.left.and.arrow.down.right"
                         )
                     }
+
+                    NavigationLink {
+                        HostedExcalidrawExampleView()
+                    } label: {
+                        Row(
+                            title: "Hosted Excalidraw",
+                            systemImage: "safari"
+                        )
+                    }
                 }
             }
             .navigationTitle("Canvas Samples")
