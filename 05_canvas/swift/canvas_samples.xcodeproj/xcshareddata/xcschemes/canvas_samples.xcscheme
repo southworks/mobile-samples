@@ -75,6 +75,13 @@
             ReferencedContainer = "container:canvas_samples.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "CANVAS_URL"
+            value = "https://giving-foxhound-top.ngrok-free.app"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

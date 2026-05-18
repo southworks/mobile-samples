@@ -5,6 +5,7 @@
 //  Created by ec2-user on 5/12/26.
 //
 
+import Combine
 import PencilKit
 import SwiftUI
 
@@ -349,7 +350,7 @@ struct MassivePencilCanvasView: UIViewRepresentable {
 
     final class HostView: UIView {
         let canvasView = PKCanvasView()
-        let overlayView = MassiveShapeOverlayView()
+        fileprivate let overlayView = MassiveShapeOverlayView()
 
         private var centered = false
         private var currentCanvasSize = CGSize.zero
@@ -443,6 +444,20 @@ private final class MassiveShapeOverlayView: UIView, UIGestureRecognizerDelegate
     private enum Interaction {
         case move(id: UUID, startPoint: CGPoint, startFrame: CGRect)
         case resize(id: UUID, handle: ResizeHandle, startPoint: CGPoint, startFrame: CGRect)
+
+        var id: UUID {
+            switch self {
+            case let .move(id, _, _), let .resize(id, _, _, _):
+                id
+            }
+        }
+
+        var startPoint: CGPoint {
+            switch self {
+            case let .move(_, startPoint, _), let .resize(_, _, startPoint, _):
+                startPoint
+            }
+        }
     }
 
     private lazy var tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -595,18 +610,3 @@ private final class MassiveShapeOverlayView: UIView, UIGestureRecognizerDelegate
     }
 }
 
-private extension MassiveShapeOverlayView.Interaction {
-    var id: UUID {
-        switch self {
-        case let .move(id, _, _), let .resize(id, _, _, _):
-            id
-        }
-    }
-
-    var startPoint: CGPoint {
-        switch self {
-        case let .move(_, startPoint, _), let .resize(_, _, startPoint, _):
-            startPoint
-        }
-    }
-}
