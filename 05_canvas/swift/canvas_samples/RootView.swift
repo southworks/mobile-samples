@@ -11,7 +11,7 @@ struct RootView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Ejemplos") {
+                Section("Examples") {
                     NavigationLink {
                         SimpleCanvasExampleView()
                     } label: {

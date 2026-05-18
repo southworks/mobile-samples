@@ -9,15 +9,15 @@ import SwiftUI
 import WebKit
 
 struct HostedExcalidrawExampleView: View {
-    @State private var pageTitle = "Cargando..."
+    @State private var pageTitle = "Loading..."
     @State private var isLoading = false
 
-    private let siteURL = ExcalidrawEnvironment.siteURL
+    private let siteURL = AppEnvironment.canvasURL
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 12) {
-                Label(isLoading ? "Cargando" : "Listo", systemImage: isLoading ? "arrow.triangle.2.circlepath" : "checkmark.circle")
+                Label(isLoading ? "Loading" : "Ready", systemImage: isLoading ? "arrow.triangle.2.circlepath" : "checkmark.circle")
                     .foregroundStyle(isLoading ? .orange : .green)
 
                 Spacer()
@@ -36,7 +36,7 @@ struct HostedExcalidrawExampleView: View {
                         .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
                 }
 
-            Text("URL actual: \(siteURL.absoluteString). El valor se toma de la configuracion del ambiente actual.")
+            Text("Current URL: \(siteURL.absoluteString). The value comes from the CANVAS_URL environment variable in the scheme.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         }
@@ -44,18 +44,6 @@ struct HostedExcalidrawExampleView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .navigationTitle("Hosted Excalidraw")
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-private enum ExcalidrawEnvironment {
-    static var siteURL: URL {
-        if let value = Bundle.main.object(forInfoDictionaryKey: "ExcalidrawBaseURL") as? String,
-           let url = URL(string: value),
-           !value.isEmpty {
-            return url
-        }
-
-        return URL(string: "http://localhost:3000")!
     }
 }
 
@@ -104,12 +92,12 @@ private struct ExcalidrawWebView: UIViewRepresentable {
 
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
             parent.isLoading = false
-            parent.pageTitle = "Error al cargar"
+            parent.pageTitle = "Failed to Load"
         }
 
         func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
             parent.isLoading = false
-            parent.pageTitle = "Error al cargar"
+            parent.pageTitle = "Failed to Load"
         }
     }
 }

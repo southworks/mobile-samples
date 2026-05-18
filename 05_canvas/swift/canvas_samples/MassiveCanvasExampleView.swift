@@ -15,19 +15,19 @@ struct MassiveCanvasExampleView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Picker("Modo", selection: $controller.mode) {
-                Text("Dibujar").tag(MassiveCanvasMode.draw)
-                Text("Editar formas").tag(MassiveCanvasMode.edit)
+            Picker("Mode", selection: $controller.mode) {
+                Text("Draw").tag(MassiveCanvasMode.draw)
+                Text("Edit Shapes").tag(MassiveCanvasMode.edit)
             }
             .pickerStyle(.segmented)
 
             HStack {
-                Button("Rectangulo", systemImage: "rectangle") {
+                Button("Rectangle", systemImage: "rectangle") {
                     controller.insertRectangle()
                 }
                 .buttonStyle(.bordered)
 
-                Button("Elipse", systemImage: "oval") {
+                Button("Ellipse", systemImage: "oval") {
                     controller.insertEllipse()
                 }
                 .buttonStyle(.bordered)
@@ -38,7 +38,7 @@ struct MassiveCanvasExampleView: View {
                 .buttonStyle(.bordered)
 
                 if controller.mode == .edit, controller.selectedItemID != nil {
-                    Button("Eliminar", systemImage: "trash") {
+                    Button("Delete", systemImage: "trash") {
                         controller.items.removeAll { $0.id == controller.selectedItemID }
                         controller.selectedItemID = nil
                     }
@@ -47,7 +47,7 @@ struct MassiveCanvasExampleView: View {
 
                 Spacer()
 
-                Menu("Exportar") {
+                Menu("Export") {
                     Button("PNG", systemImage: "photo") {
                         exportURL = controller.exportPNG()
                     }
@@ -68,7 +68,7 @@ struct MassiveCanvasExampleView: View {
                 }
 
             if controller.mode == .edit {
-                Text("Toca una forma para seleccionarla. Arrastra para moverla y usa las esquinas para cambiar su tamaño.")
+                Text("Tap a shape to select it. Drag to move it and use the corners to resize it.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }

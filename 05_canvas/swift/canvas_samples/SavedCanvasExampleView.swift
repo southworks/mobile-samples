@@ -22,12 +22,12 @@ struct SavedCanvasExampleView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                Button("Guardar", systemImage: "square.and.arrow.down") {
+                Button("Save", systemImage: "square.and.arrow.down") {
                     saveDrawing()
                 }
                 .buttonStyle(.borderedProminent)
 
-                Button("Limpiar", systemImage: "trash") {
+                Button("Clear", systemImage: "trash") {
                     drawing = PKDrawing()
                     saveDrawing()
                 }
@@ -36,7 +36,7 @@ struct SavedCanvasExampleView: View {
                 Spacer()
 
                 if let lastSavedAt {
-                    Text("Ultimo guardado: \(lastSavedAt, format: .dateTime.hour().minute().second())")
+                    Text("Last saved: \(lastSavedAt, format: .dateTime.hour().minute().second())")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
