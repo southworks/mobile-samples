@@ -12,18 +12,10 @@ struct LanguageSettingsView: View {
 
     var body: some View {
         List {
-            Picker(
+            LabeledContent(
                 localizationStore.text("settings.selectedLanguage", defaultValue: "Language"),
-                selection: Binding(
-                    get: { localizationStore.selectedLanguage },
-                    set: { localizationStore.selectedLanguage = $0 }
-                )
-            ) {
-                ForEach(AppLanguage.allCases) { language in
-                    Text(language.displayName)
-                        .tag(language)
-                }
-            }
+                value: localizationStore.selectedLanguage.rawValue
+            )
 
             LabeledContent(
                 localizationStore.text("settings.systemLanguage", defaultValue: "Bundle"),

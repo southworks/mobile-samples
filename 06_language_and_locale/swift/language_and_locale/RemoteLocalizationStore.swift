@@ -17,7 +17,6 @@ struct RemoteClientPayload: Decodable {
     let firstname: String
     let lastname: String
     let email: String
-    let image: String
 }
 
 struct RemoteClient {
@@ -56,7 +55,7 @@ enum RemoteClientResolver {
         return RemoteClient(
             fullName: fullName,
             email: payload.email,
-            imageURL: URL(string: payload.image),
+            imageURL: URL(string: "https://picsum.photos/300")!,
             requestedLanguage: requestedLanguage,
             resolvedLanguage: resolvedLanguage
         )

@@ -13,10 +13,18 @@ struct RootView: View {
     var body: some View {
         NavigationStack {
             List {
-                LabeledContent(
+                Picker(
                     localizationStore.text("home.currentLanguage", defaultValue: "App"),
-                    value: localizationStore.selectedLanguage.rawValue
-                )
+                    selection: Binding(
+                        get: { localizationStore.selectedLanguage },
+                        set: { localizationStore.selectedLanguage = $0 }
+                    )
+                ) {
+                    ForEach(AppLanguage.allCases) { language in
+                        Text(language.displayName)
+                            .tag(language)
+                    }
+                }
 
                 NavigationLink(
                     localizationStore.text("settings.title", defaultValue: "Language Settings"),
