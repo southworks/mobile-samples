@@ -25,7 +25,7 @@ struct RTLLayoutView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
         }
-        .navigationTitle("rtl.title")
+        .navigationTitle("RTL")
     }
 
     private var headerRow: some View {

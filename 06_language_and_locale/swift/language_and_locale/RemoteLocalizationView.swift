@@ -38,16 +38,6 @@ struct RemoteLocalizationView: View {
 
                 Text(client.email)
                     .foregroundStyle(.secondary)
-
-                LabeledContent(
-                    "remote.requestedLanguage",
-                    value: languageStore.selectedLanguage.rawValue
-                )
-
-                LabeledContent(
-                    "remote.resolvedLanguage",
-                    value: client.resolvedLanguage.rawValue
-                )
             }
         }
         .navigationTitle("remote.title")

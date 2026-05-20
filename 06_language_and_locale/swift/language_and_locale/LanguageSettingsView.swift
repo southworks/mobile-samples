@@ -23,7 +23,7 @@ struct LanguageSettingsView: View {
             )
 
             LabeledContent(
-                "settings.layoutDirection",
+                "RTL",
                 value: languageStore.englishLayoutDescription
             )
         }
