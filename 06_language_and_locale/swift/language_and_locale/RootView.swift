@@ -42,7 +42,7 @@ struct RootView: View {
                 )
 
                 NavigationLink(
-                    "rtl.title",
+                    "RTL",
                     value: Route.rtlLayout
                 )
             }
