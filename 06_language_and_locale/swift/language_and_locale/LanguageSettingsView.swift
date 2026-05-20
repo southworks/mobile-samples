@@ -13,18 +13,18 @@ struct LanguageSettingsView: View {
     var body: some View {
         List {
             LabeledContent(
-                localizationStore.text("settings.selectedLanguage", defaultValue: "Language"),
-                value: localizationStore.selectedLanguage.rawValue
+                Text("settings.selectedLanguage"),
+                value: localizationStore.selectedLanguage.displayName
             )
 
             LabeledContent(
-                localizationStore.text("settings.systemLanguage", defaultValue: "Bundle"),
-                value: localizationStore.defaultLanguageCode
+                Text("settings.systemLanguage"),
+                value: localizationStore.defaultLanguageEnglishName
             )
 
             LabeledContent(
-                localizationStore.text("settings.layoutDirection", defaultValue: "Direction"),
-                value: localizationStore.layoutDescription
+                Text("settings.layoutDirection"),
+                value: localizationStore.englishLayoutDescription
             )
         }
         .navigationTitle(localizationStore.text("settings.title", defaultValue: "Language Settings"))

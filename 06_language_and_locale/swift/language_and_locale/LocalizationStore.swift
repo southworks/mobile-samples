@@ -115,6 +115,14 @@ final class LocalizationStore {
         selectedLanguage.isRightToLeft ? "RTL" : "LTR"
     }
 
+    var englishLayoutDescription: String {
+        selectedLanguage.isRightToLeft ? "Right to Left" : "Left to Right"
+    }
+
+    var defaultLanguageEnglishName: String {
+        AppLanguage.fromPreferredLocalization(defaultLanguageCode)?.displayName ?? defaultLanguageCode
+    }
+
     func text(_ key: String, defaultValue: String) -> String {
         let fallbackValue = Bundle.localizedBundle(for: AppLanguage.english.bundleLocalizationCode)?
             .localizedString(forKey: key, value: defaultValue, table: nil) ?? defaultValue
