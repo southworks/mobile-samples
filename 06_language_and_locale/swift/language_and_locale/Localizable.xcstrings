@@ -86,6 +86,7 @@
       }
     },
     "remote.requestedLanguage" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -114,6 +115,7 @@
       }
     },
     "remote.resolvedLanguage" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -169,33 +171,8 @@
         }
       }
     },
-    "rtl.cardBody" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "leading و trailing فقط."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "leading and trailing only."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Solo leading y trailing."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "leading / trailing のみ。"
-          }
-        }
-      }
+    "RTL" : {
+
     },
     "rtl.balance" : {
       "localizations" : {
@@ -221,6 +198,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "残高"
+          }
+        }
+      }
+    },
+    "rtl.cardBody" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "leading و trailing فقط."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "leading and trailing only."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo leading y trailing."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "leading / trailing のみ。"
           }
         }
       }
@@ -366,11 +371,18 @@
       }
     },
     "rtl.title" : {
+      "extractionState" : "stale",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "RTL" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RTL"
+          }
+        }
       }
     },
     "settings.layoutDirection" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -591,7 +603,12 @@
     },
     "static.fallbackLabel" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Fallback" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fallback"
+          }
+        }
       }
     },
     "static.title" : {
