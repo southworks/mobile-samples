@@ -6,25 +6,25 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "التطبيق"
+            "value" : "اللغة"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App"
+            "value" : "Language"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App"
+            "value" : "Idioma"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アプリ"
+            "value" : "言語"
           }
         }
       }
@@ -459,25 +459,25 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Idioma"
+            "value" : "إعدادات اللغة"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Language"
+            "value" : "Language Settings"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Idioma"
+            "value" : "Ajustes de idioma"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "言語"
+            "value" : "言語設定"
           }
         }
       }
@@ -599,25 +599,25 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Static"
+            "value" : "ترجمة ثابتة"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Static"
+            "value" : "Static Localization"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Static"
+            "value" : "Localizacion estatica"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Static"
+            "value" : "静的ローカライズ"
           }
         }
       }
