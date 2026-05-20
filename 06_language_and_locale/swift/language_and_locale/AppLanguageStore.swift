@@ -14,6 +14,7 @@ enum AppLanguage: String, CaseIterable, Identifiable {
     case spanish = "es"
     case arabic = "ar"
     case japanese = "jp"
+    case french = "fr"
 
     var id: String { rawValue }
 
@@ -27,6 +28,8 @@ enum AppLanguage: String, CaseIterable, Identifiable {
             "Arabic"
         case .japanese:
             "Japanese"
+        case .french:
+            "French"
         }
     }
 
@@ -68,6 +71,10 @@ enum AppLanguage: String, CaseIterable, Identifiable {
 
         if normalizedCode.hasPrefix("ja") || normalizedCode.hasPrefix("jp") {
             return .japanese
+        }
+
+        if normalizedCode.hasPrefix("fr") {
+            return .french
         }
 
         return nil
