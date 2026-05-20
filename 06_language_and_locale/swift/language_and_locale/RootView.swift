@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct RootView: View {
-    @Environment(LocalizationStore.self) private var localizationStore
+    @Environment(AppLanguageStore.self) private var languageStore
 
     var body: some View {
         NavigationStack {
             List {
                 Picker(
-                    localizationStore.text("home.currentLanguage", defaultValue: "App"),
+                    "home.currentLanguage",
                     selection: Binding(
-                        get: { localizationStore.selectedLanguage },
-                        set: { localizationStore.selectedLanguage = $0 }
+                        get: { languageStore.selectedLanguage },
+                        set: { languageStore.selectedLanguage = $0 }
                     )
                 ) {
                     ForEach(AppLanguage.allCases) { language in
@@ -27,26 +27,26 @@ struct RootView: View {
                 }
 
                 NavigationLink(
-                    localizationStore.text("settings.title", defaultValue: "Language Settings"),
+                    "settings.title",
                     value: Route.languageSettings
                 )
 
                 NavigationLink(
-                    localizationStore.text("static.title", defaultValue: "Static Localization"),
+                    "static.title",
                     value: Route.staticLocalization
                 )
 
                 NavigationLink(
-                    localizationStore.text("remote.title", defaultValue: "Remote Localization"),
+                    "remote.title",
                     value: Route.remoteLocalization
                 )
 
                 NavigationLink(
-                    localizationStore.text("rtl.title", defaultValue: "RTL Layout"),
+                    "rtl.title",
                     value: Route.rtlLayout
                 )
             }
-            .navigationTitle(localizationStore.text("home.title", defaultValue: "Localization Samples"))
+            .navigationTitle("home.title")
             .navigationDestination(for: Route.self) { route in
                 switch route {
                 case .languageSettings:
@@ -72,6 +72,6 @@ enum Route: Hashable {
 
 #Preview {
     RootView()
-        .environment(LocalizationStore())
+        .environment(AppLanguageStore())
         .environment(RemoteLocalizationStore())
 }

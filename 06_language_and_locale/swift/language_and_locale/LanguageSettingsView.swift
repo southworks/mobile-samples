@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct LanguageSettingsView: View {
-    @Environment(LocalizationStore.self) private var localizationStore
+    @Environment(AppLanguageStore.self) private var languageStore
 
     var body: some View {
         List {
             LabeledContent(
-                Text("settings.selectedLanguage"),
-                value: localizationStore.selectedLanguage.displayName
+                "settings.selectedLanguage",
+                value: languageStore.selectedLanguage.displayName
             )
 
             LabeledContent(
-                Text("settings.systemLanguage"),
-                value: localizationStore.defaultLanguageEnglishName
+                "settings.systemLanguage",
+                value: languageStore.defaultLanguageEnglishName
             )
 
             LabeledContent(
-                Text("settings.layoutDirection"),
-                value: localizationStore.englishLayoutDescription
+                "settings.layoutDirection",
+                value: languageStore.englishLayoutDescription
             )
         }
-        .navigationTitle(localizationStore.text("settings.title", defaultValue: "Language Settings"))
+        .navigationTitle("settings.title")
     }
 }

@@ -9,16 +9,16 @@ import SwiftUI
 
 @main
 struct language_and_localeApp: App {
-    @State private var localizationStore = LocalizationStore()
+    @State private var languageStore = AppLanguageStore()
     @State private var remoteLocalizationStore = RemoteLocalizationStore()
 
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environment(localizationStore)
+                .environment(languageStore)
                 .environment(remoteLocalizationStore)
-                .environment(\.locale, localizationStore.locale)
-                .environment(\.layoutDirection, localizationStore.layoutDirection)
+                .environment(\.locale, languageStore.locale)
+                .environment(\.layoutDirection, languageStore.layoutDirection)
         }
     }
 }

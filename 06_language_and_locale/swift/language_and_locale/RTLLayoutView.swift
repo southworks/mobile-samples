@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RTLLayoutView: View {
-    @Environment(LocalizationStore.self) private var localizationStore
+    @Environment(AppLanguageStore.self) private var languageStore
 
     var body: some View {
         ScrollView {
@@ -18,14 +18,14 @@ struct RTLLayoutView: View {
                 buttonsColumn
 
                 LabeledContent(
-                    localizationStore.text("rtl.currentDirection", defaultValue: "Current direction"),
-                    value: localizationStore.layoutDescription
+                    "rtl.currentDirection",
+                    value: languageStore.layoutDescription
                 )
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
         }
-        .navigationTitle(localizationStore.text("rtl.title", defaultValue: "RTL Layout"))
+        .navigationTitle("rtl.title")
     }
 
     private var headerRow: some View {
@@ -36,10 +36,10 @@ struct RTLLayoutView: View {
                 .background(Color.accentColor.opacity(0.15), in: RoundedRectangle(cornerRadius: 14))
 
             VStack(alignment: .leading, spacing: 6) {
-                Text(localizationStore.text("rtl.cardTitle", defaultValue: "Adaptive row"))
+                Text("rtl.cardTitle")
                     .font(.headline)
 
-                Text(localizationStore.text("rtl.cardBody", defaultValue: "No left or right constraints are hard-coded in this sample."))
+                Text("rtl.cardBody")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -56,12 +56,12 @@ struct RTLLayoutView: View {
     private var metricsRow: some View {
         HStack(spacing: 12) {
             metricCard(
-                title: localizationStore.text("rtl.balance", defaultValue: "Balance"),
+                title: "rtl.balance",
                 value: "$128"
             )
 
             metricCard(
-                title: localizationStore.text("rtl.orders", defaultValue: "Orders"),
+                title: "rtl.orders",
                 value: "12"
             )
         }
@@ -70,20 +70,20 @@ struct RTLLayoutView: View {
     private var buttonsColumn: some View {
         VStack(spacing: 12) {
             actionRow(
-                title: localizationStore.text("rtl.primaryAction", defaultValue: "Primary"),
+                title: "rtl.primaryAction",
                 icon: "arrow.forward.circle.fill",
                 prominent: true
             )
 
             actionRow(
-                title: localizationStore.text("rtl.secondaryAction", defaultValue: "Secondary"),
+                title: "rtl.secondaryAction",
                 icon: "slider.horizontal.3",
                 prominent: false
             )
         }
     }
 
-    private func metricCard(title: String, value: String) -> some View {
+    private func metricCard(title: LocalizedStringKey, value: String) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
                 .font(.caption)
@@ -97,7 +97,7 @@ struct RTLLayoutView: View {
         .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 16))
     }
 
-    private func actionRow(title: String, icon: String, prominent: Bool) -> some View {
+    private func actionRow(title: LocalizedStringKey, icon: String, prominent: Bool) -> some View {
         HStack {
             if prominent == false {
                 Image(systemName: icon)

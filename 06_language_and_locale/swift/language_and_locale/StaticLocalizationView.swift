@@ -8,41 +8,40 @@
 import SwiftUI
 
 struct StaticLocalizationView: View {
-    @Environment(LocalizationStore.self) private var localizationStore
+    @Environment(AppLanguageStore.self) private var languageStore
 
     private var localizedDate: String {
         Date.now.formatted(
             Date.FormatStyle(date: .complete, time: .shortened)
-                .locale(localizationStore.locale)
+                .locale(languageStore.locale)
         )
     }
 
     private var localizedPrice: String {
-        9.99.formatted(.currency(code: "USD").locale(localizationStore.locale))
+        9.99.formatted(.currency(code: "USD").locale(languageStore.locale))
     }
 
     var body: some View {
         List {
             LabeledContent(
-                localizationStore.text("static.example.date", defaultValue: "Date"),
+                "static.example.date",
                 value: localizedDate
             )
 
             LabeledContent(
-                localizationStore.text("static.example.price", defaultValue: "Price"),
+                "static.example.price",
                 value: localizedPrice
             )
 
             LabeledContent(
-                localizationStore.text("static.example.identifier", defaultValue: "Code"),
-                value: localizationStore.selectedLanguage.rawValue
+                "static.example.identifier",
+                value: languageStore.selectedLanguage.rawValue
             )
 
-            LabeledContent(
-                localizationStore.text("static.fallbackLabel", defaultValue: "Fallback"),
-                value: localizationStore.text("static.fallbackExample", defaultValue: "English fallback")
-            )
+            LabeledContent("static.fallbackLabel") {
+                Text("static.fallbackExample")
+            }
         }
-        .navigationTitle(localizationStore.text("static.title", defaultValue: "Static Localization"))
+        .navigationTitle("static.title")
     }
 }

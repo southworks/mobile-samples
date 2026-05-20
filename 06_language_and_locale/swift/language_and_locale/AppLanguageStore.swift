@@ -1,5 +1,5 @@
 //
-//  LocalizationStore.swift
+//  AppLanguageStore.swift
 //  language_and_locale
 //
 //  Created by ec2-user on 5/19/26.
@@ -76,7 +76,7 @@ enum AppLanguage: String, CaseIterable, Identifiable {
 
 @MainActor
 @Observable
-final class LocalizationStore {
+final class AppLanguageStore {
     private static let selectedLanguageKey = "selected-language"
     private let userDefaults: UserDefaults
 
@@ -121,28 +121,5 @@ final class LocalizationStore {
 
     var defaultLanguageEnglishName: String {
         AppLanguage.fromPreferredLocalization(defaultLanguageCode)?.displayName ?? defaultLanguageCode
-    }
-
-    func text(_ key: String, defaultValue: String) -> String {
-        let fallbackValue = Bundle.localizedBundle(for: AppLanguage.english.bundleLocalizationCode)?
-            .localizedString(forKey: key, value: defaultValue, table: nil) ?? defaultValue
-
-        return localizedBundle.localizedString(forKey: key, value: fallbackValue, table: nil)
-    }
-
-    private var localizedBundle: Bundle {
-        Bundle.localizedBundle(for: selectedLanguage.bundleLocalizationCode)
-            ?? Bundle.localizedBundle(for: AppLanguage.english.bundleLocalizationCode)
-            ?? .main
-    }
-}
-
-private extension Bundle {
-    static func localizedBundle(for languageCode: String) -> Bundle? {
-        guard let path = Bundle.main.path(forResource: languageCode, ofType: "lproj") else {
-            return nil
-        }
-
-        return Bundle(path: path)
     }
 }

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct RemoteLocalizationView: View {
-    @Environment(LocalizationStore.self) private var localizationStore
+    @Environment(AppLanguageStore.self) private var languageStore
     @Environment(RemoteLocalizationStore.self) private var remoteStore
 
     var body: some View {
         List {
             if remoteStore.isLoading {
-                ProgressView(localizationStore.text("remote.loading", defaultValue: "Loading remote content..."))
+                ProgressView("remote.loading")
                     .frame(maxWidth: .infinity, alignment: .center)
             } else if let errorMessage = remoteStore.errorMessage {
                 Section {
@@ -40,22 +40,22 @@ struct RemoteLocalizationView: View {
                     .foregroundStyle(.secondary)
 
                 LabeledContent(
-                    localizationStore.text("remote.requestedLanguage", defaultValue: "Requested"),
-                    value: localizationStore.selectedLanguage.rawValue
+                    "remote.requestedLanguage",
+                    value: languageStore.selectedLanguage.rawValue
                 )
 
                 LabeledContent(
-                    localizationStore.text("remote.resolvedLanguage", defaultValue: "Resolved"),
+                    "remote.resolvedLanguage",
                     value: client.resolvedLanguage.rawValue
                 )
             }
         }
-        .navigationTitle(localizationStore.text("remote.title", defaultValue: "Remote Localization"))
-        .task(id: localizationStore.selectedLanguage) {
-            await remoteStore.loadIfNeeded(for: localizationStore.selectedLanguage)
+        .navigationTitle("remote.title")
+        .task(id: languageStore.selectedLanguage) {
+            await remoteStore.loadIfNeeded(for: languageStore.selectedLanguage)
         }
         .refreshable {
-            await remoteStore.reload(for: localizationStore.selectedLanguage)
+            await remoteStore.reload(for: languageStore.selectedLanguage)
         }
     }
 }
