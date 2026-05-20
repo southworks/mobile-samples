@@ -12,10 +12,18 @@ struct LanguageSettingsView: View {
 
     var body: some View {
         List {
-            LabeledContent(
+            Picker(
                 localizationStore.text("settings.selectedLanguage", defaultValue: "Language"),
-                value: localizationStore.selectedLanguage.rawValue
-            )
+                selection: Binding(
+                    get: { localizationStore.selectedLanguage },
+                    set: { localizationStore.selectedLanguage = $0 }
+                )
+            ) {
+                ForEach(AppLanguage.allCases) { language in
+                    Text(language.displayName)
+                        .tag(language)
+                }
+            }
 
             LabeledContent(
                 localizationStore.text("settings.systemLanguage", defaultValue: "Bundle"),
@@ -26,24 +34,6 @@ struct LanguageSettingsView: View {
                 localizationStore.text("settings.layoutDirection", defaultValue: "Direction"),
                 value: localizationStore.layoutDescription
             )
-
-            ForEach(AppLanguage.allCases) { language in
-                Button {
-                    localizationStore.selectedLanguage = language
-                } label: {
-                    HStack {
-                        Text(language.displayName)
-
-                        Spacer()
-
-                        if language == localizationStore.selectedLanguage {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundStyle(.tint)
-                        }
-                    }
-                }
-                .buttonStyle(.plain)
-            }
         }
         .navigationTitle(localizationStore.text("settings.title", defaultValue: "Language Settings"))
     }

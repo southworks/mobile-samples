@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  language_and_locale
 //
 //  Created by ec2-user on 5/19/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
     @Environment(LocalizationStore.self) private var localizationStore
 
     var body: some View {
@@ -18,26 +18,25 @@ struct ContentView: View {
                     value: localizationStore.selectedLanguage.rawValue
                 )
 
-                LabeledContent(
-                    localizationStore.text("home.defaultLanguage", defaultValue: "Bundle"),
-                    value: localizationStore.defaultLanguageCode
+                NavigationLink(
+                    localizationStore.text("settings.title", defaultValue: "Language Settings"),
+                    value: Route.languageSettings
                 )
 
-                NavigationLink(value: Route.languageSettings) {
-                    SampleRow(title: localizationStore.text("settings.title", defaultValue: "Language Settings"))
-                }
+                NavigationLink(
+                    localizationStore.text("static.title", defaultValue: "Static Localization"),
+                    value: Route.staticLocalization
+                )
 
-                NavigationLink(value: Route.staticLocalization) {
-                    SampleRow(title: localizationStore.text("static.title", defaultValue: "Static Localization"))
-                }
+                NavigationLink(
+                    localizationStore.text("remote.title", defaultValue: "Remote Localization"),
+                    value: Route.remoteLocalization
+                )
 
-                NavigationLink(value: Route.remoteLocalization) {
-                    SampleRow(title: localizationStore.text("remote.title", defaultValue: "Remote Localization"))
-                }
-
-                NavigationLink(value: Route.rtlLayout) {
-                    SampleRow(title: localizationStore.text("rtl.title", defaultValue: "RTL Layout"))
-                }
+                NavigationLink(
+                    localizationStore.text("rtl.title", defaultValue: "RTL Layout"),
+                    value: Route.rtlLayout
+                )
             }
             .navigationTitle(localizationStore.text("home.title", defaultValue: "Localization Samples"))
             .navigationDestination(for: Route.self) { route in
@@ -64,7 +63,7 @@ enum Route: Hashable {
 }
 
 #Preview {
-    ContentView()
+    RootView()
         .environment(LocalizationStore())
         .environment(RemoteLocalizationStore())
 }
