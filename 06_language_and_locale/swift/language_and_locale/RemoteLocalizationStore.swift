@@ -42,6 +42,8 @@ enum RemoteClientResolver {
             "es_AR"
         case .arabic:
             "ar_SA"
+        case .french:
+            "en_US"
         }
     }
 
