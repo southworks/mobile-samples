@@ -6,27 +6,19 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct language_and_localeApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @State private var localizationStore = LocalizationStore()
+    @State private var remoteLocalizationStore = RemoteLocalizationStore()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(localizationStore)
+                .environment(remoteLocalizationStore)
+                .environment(\.locale, localizationStore.locale)
+                .environment(\.layoutDirection, localizationStore.layoutDirection)
         }
-        .modelContainer(sharedModelContainer)
     }
 }

@@ -6,56 +6,65 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Environment(LocalizationStore.self) private var localizationStore
 
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
+                LabeledContent(
+                    localizationStore.text("home.currentLanguage", defaultValue: "App"),
+                    value: localizationStore.selectedLanguage.rawValue
+                )
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
+                LabeledContent(
+                    localizationStore.text("home.defaultLanguage", defaultValue: "Bundle"),
+                    value: localizationStore.defaultLanguageCode
+                )
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+                NavigationLink(value: Route.languageSettings) {
+                    SampleRow(title: localizationStore.text("settings.title", defaultValue: "Language Settings"))
+                }
+
+                NavigationLink(value: Route.staticLocalization) {
+                    SampleRow(title: localizationStore.text("static.title", defaultValue: "Static Localization"))
+                }
+
+                NavigationLink(value: Route.remoteLocalization) {
+                    SampleRow(title: localizationStore.text("remote.title", defaultValue: "Remote Localization"))
+                }
+
+                NavigationLink(value: Route.rtlLayout) {
+                    SampleRow(title: localizationStore.text("rtl.title", defaultValue: "RTL Layout"))
+                }
+            }
+            .navigationTitle(localizationStore.text("home.title", defaultValue: "Localization Samples"))
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .languageSettings:
+                    LanguageSettingsView()
+                case .staticLocalization:
+                    StaticLocalizationView()
+                case .remoteLocalization:
+                    RemoteLocalizationView()
+                case .rtlLayout:
+                    RTLLayoutView()
+                }
             }
         }
     }
 }
 
+enum Route: Hashable {
+    case languageSettings
+    case staticLocalization
+    case remoteLocalization
+    case rtlLayout
+}
+
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .environment(LocalizationStore())
+        .environment(RemoteLocalizationStore())
 }
