@@ -15,6 +15,7 @@ struct language_and_localeApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                .id(languageStore.selectedLanguage.rawValue)
                 .environment(languageStore)
                 .environment(remoteLocalizationStore)
                 .environment(\.locale, languageStore.locale)
