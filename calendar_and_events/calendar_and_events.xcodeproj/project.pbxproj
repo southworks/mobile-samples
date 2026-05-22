@@ -7,75 +7,62 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		5789E2582FBDFF6300C15ABE /* PBXContainerItemProxy */ = {
+		5789E2AD2FC1024900C15ABE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5789E2402FBDFF6100C15ABE /* Project object */;
+			containerPortal = 5789E2952FC1024600C15ABE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5789E2472FBDFF6100C15ABE;
-			remoteInfo = media_samples;
+			remoteGlobalIDString = 5789E29C2FC1024600C15ABE;
+			remoteInfo = calendar_and_events;
 		};
-		5789E2622FBDFF6300C15ABE /* PBXContainerItemProxy */ = {
+		5789E2B72FC1024900C15ABE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5789E2402FBDFF6100C15ABE /* Project object */;
+			containerPortal = 5789E2952FC1024600C15ABE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5789E2472FBDFF6100C15ABE;
-			remoteInfo = media_samples;
+			remoteGlobalIDString = 5789E29C2FC1024600C15ABE;
+			remoteInfo = calendar_and_events;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5789E2482FBDFF6100C15ABE /* media_samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = media_samples.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5789E2572FBDFF6300C15ABE /* media_samplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = media_samplesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5789E2612FBDFF6300C15ABE /* media_samplesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = media_samplesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5789E29D2FC1024600C15ABE /* calendar_and_events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calendar_and_events.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5789E2AC2FC1024900C15ABE /* calendar_and_eventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calendar_and_eventsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5789E2B62FC1024900C15ABE /* calendar_and_eventsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calendar_and_eventsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5789E2932FC0A57500C15ABE /* Exceptions for "media_samples" folder in "media_samples" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"media-samples-Info.plist",
-			);
-			target = 5789E2472FBDFF6100C15ABE /* media_samples */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5789E24A2FBDFF6100C15ABE /* media_samples */ = {
+		5789E29F2FC1024600C15ABE /* calendar_and_events */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5789E2932FC0A57500C15ABE /* Exceptions for "media_samples" folder in "media_samples" target */,
-			);
-			path = media_samples;
+			path = calendar_and_events;
 			sourceTree = "<group>";
 		};
-		5789E25A2FBDFF6300C15ABE /* media_samplesTests */ = {
+		5789E2AF2FC1024900C15ABE /* calendar_and_eventsTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = media_samplesTests;
+			path = calendar_and_eventsTests;
 			sourceTree = "<group>";
 		};
-		5789E2642FBDFF6300C15ABE /* media_samplesUITests */ = {
+		5789E2B92FC1024900C15ABE /* calendar_and_eventsUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = media_samplesUITests;
+			path = calendar_and_eventsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5789E2452FBDFF6100C15ABE /* Frameworks */ = {
+		5789E29A2FC1024600C15ABE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5789E2542FBDFF6300C15ABE /* Frameworks */ = {
+		5789E2A92FC1024900C15ABE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5789E25E2FBDFF6300C15ABE /* Frameworks */ = {
+		5789E2B32FC1024900C15ABE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5789E23F2FBDFF6100C15ABE = {
+		5789E2942FC1024600C15ABE = {
 			isa = PBXGroup;
 			children = (
-				5789E24A2FBDFF6100C15ABE /* media_samples */,
-				5789E25A2FBDFF6300C15ABE /* media_samplesTests */,
-				5789E2642FBDFF6300C15ABE /* media_samplesUITests */,
-				5789E2492FBDFF6100C15ABE /* Products */,
+				5789E29F2FC1024600C15ABE /* calendar_and_events */,
+				5789E2AF2FC1024900C15ABE /* calendar_and_eventsTests */,
+				5789E2B92FC1024900C15ABE /* calendar_and_eventsUITests */,
+				5789E29E2FC1024600C15ABE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5789E2492FBDFF6100C15ABE /* Products */ = {
+		5789E29E2FC1024600C15ABE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5789E2482FBDFF6100C15ABE /* media_samples.app */,
-				5789E2572FBDFF6300C15ABE /* media_samplesTests.xctest */,
-				5789E2612FBDFF6300C15ABE /* media_samplesUITests.xctest */,
+				5789E29D2FC1024600C15ABE /* calendar_and_events.app */,
+				5789E2AC2FC1024900C15ABE /* calendar_and_eventsTests.xctest */,
+				5789E2B62FC1024900C15ABE /* calendar_and_eventsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,134 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5789E2472FBDFF6100C15ABE /* media_samples */ = {
+		5789E29C2FC1024600C15ABE /* calendar_and_events */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5789E26B2FBDFF6300C15ABE /* Build configuration list for PBXNativeTarget "media_samples" */;
+			buildConfigurationList = 5789E2C02FC1024900C15ABE /* Build configuration list for PBXNativeTarget "calendar_and_events" */;
 			buildPhases = (
-				5789E2442FBDFF6100C15ABE /* Sources */,
-				5789E2452FBDFF6100C15ABE /* Frameworks */,
-				5789E2462FBDFF6100C15ABE /* Resources */,
+				5789E2992FC1024600C15ABE /* Sources */,
+				5789E29A2FC1024600C15ABE /* Frameworks */,
+				5789E29B2FC1024600C15ABE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5789E24A2FBDFF6100C15ABE /* media_samples */,
+				5789E29F2FC1024600C15ABE /* calendar_and_events */,
 			);
-			name = media_samples;
+			name = calendar_and_events;
 			packageProductDependencies = (
 			);
-			productName = media_samples;
-			productReference = 5789E2482FBDFF6100C15ABE /* media_samples.app */;
+			productName = calendar_and_events;
+			productReference = 5789E29D2FC1024600C15ABE /* calendar_and_events.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5789E2562FBDFF6300C15ABE /* media_samplesTests */ = {
+		5789E2AB2FC1024900C15ABE /* calendar_and_eventsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5789E26E2FBDFF6300C15ABE /* Build configuration list for PBXNativeTarget "media_samplesTests" */;
+			buildConfigurationList = 5789E2C32FC1024900C15ABE /* Build configuration list for PBXNativeTarget "calendar_and_eventsTests" */;
 			buildPhases = (
-				5789E2532FBDFF6300C15ABE /* Sources */,
-				5789E2542FBDFF6300C15ABE /* Frameworks */,
-				5789E2552FBDFF6300C15ABE /* Resources */,
+				5789E2A82FC1024900C15ABE /* Sources */,
+				5789E2A92FC1024900C15ABE /* Frameworks */,
+				5789E2AA2FC1024900C15ABE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5789E2592FBDFF6300C15ABE /* PBXTargetDependency */,
+				5789E2AE2FC1024900C15ABE /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5789E25A2FBDFF6300C15ABE /* media_samplesTests */,
+				5789E2AF2FC1024900C15ABE /* calendar_and_eventsTests */,
 			);
-			name = media_samplesTests;
+			name = calendar_and_eventsTests;
 			packageProductDependencies = (
 			);
-			productName = media_samplesTests;
-			productReference = 5789E2572FBDFF6300C15ABE /* media_samplesTests.xctest */;
+			productName = calendar_and_eventsTests;
+			productReference = 5789E2AC2FC1024900C15ABE /* calendar_and_eventsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5789E2602FBDFF6300C15ABE /* media_samplesUITests */ = {
+		5789E2B52FC1024900C15ABE /* calendar_and_eventsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5789E2712FBDFF6300C15ABE /* Build configuration list for PBXNativeTarget "media_samplesUITests" */;
+			buildConfigurationList = 5789E2C62FC1024900C15ABE /* Build configuration list for PBXNativeTarget "calendar_and_eventsUITests" */;
 			buildPhases = (
-				5789E25D2FBDFF6300C15ABE /* Sources */,
-				5789E25E2FBDFF6300C15ABE /* Frameworks */,
-				5789E25F2FBDFF6300C15ABE /* Resources */,
+				5789E2B22FC1024900C15ABE /* Sources */,
+				5789E2B32FC1024900C15ABE /* Frameworks */,
+				5789E2B42FC1024900C15ABE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5789E2632FBDFF6300C15ABE /* PBXTargetDependency */,
+				5789E2B82FC1024900C15ABE /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5789E2642FBDFF6300C15ABE /* media_samplesUITests */,
+				5789E2B92FC1024900C15ABE /* calendar_and_eventsUITests */,
 			);
-			name = media_samplesUITests;
+			name = calendar_and_eventsUITests;
 			packageProductDependencies = (
 			);
-			productName = media_samplesUITests;
-			productReference = 5789E2612FBDFF6300C15ABE /* media_samplesUITests.xctest */;
+			productName = calendar_and_eventsUITests;
+			productReference = 5789E2B62FC1024900C15ABE /* calendar_and_eventsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5789E2402FBDFF6100C15ABE /* Project object */ = {
+		5789E2952FC1024600C15ABE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 2650;
 				TargetAttributes = {
-					5789E2472FBDFF6100C15ABE = {
+					5789E29C2FC1024600C15ABE = {
 						CreatedOnToolsVersion = 26.5;
 					};
-					5789E2562FBDFF6300C15ABE = {
+					5789E2AB2FC1024900C15ABE = {
 						CreatedOnToolsVersion = 26.5;
-						TestTargetID = 5789E2472FBDFF6100C15ABE;
+						TestTargetID = 5789E29C2FC1024600C15ABE;
 					};
-					5789E2602FBDFF6300C15ABE = {
+					5789E2B52FC1024900C15ABE = {
 						CreatedOnToolsVersion = 26.5;
-						TestTargetID = 5789E2472FBDFF6100C15ABE;
+						TestTargetID = 5789E29C2FC1024600C15ABE;
 					};
 				};
 			};
-			buildConfigurationList = 5789E2432FBDFF6100C15ABE /* Build configuration list for PBXProject "media_samples" */;
+			buildConfigurationList = 5789E2982FC1024600C15ABE /* Build configuration list for PBXProject "calendar_and_events" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 5789E23F2FBDFF6100C15ABE;
+			mainGroup = 5789E2942FC1024600C15ABE;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5789E2492FBDFF6100C15ABE /* Products */;
+			productRefGroup = 5789E29E2FC1024600C15ABE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5789E2472FBDFF6100C15ABE /* media_samples */,
-				5789E2562FBDFF6300C15ABE /* media_samplesTests */,
-				5789E2602FBDFF6300C15ABE /* media_samplesUITests */,
+				5789E29C2FC1024600C15ABE /* calendar_and_events */,
+				5789E2AB2FC1024900C15ABE /* calendar_and_eventsTests */,
+				5789E2B52FC1024900C15ABE /* calendar_and_eventsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5789E2462FBDFF6100C15ABE /* Resources */ = {
+		5789E29B2FC1024600C15ABE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5789E2552FBDFF6300C15ABE /* Resources */ = {
+		5789E2AA2FC1024900C15ABE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5789E25F2FBDFF6300C15ABE /* Resources */ = {
+		5789E2B42FC1024900C15ABE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -245,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5789E2442FBDFF6100C15ABE /* Sources */ = {
+		5789E2992FC1024600C15ABE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5789E2532FBDFF6300C15ABE /* Sources */ = {
+		5789E2A82FC1024900C15ABE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5789E25D2FBDFF6300C15ABE /* Sources */ = {
+		5789E2B22FC1024900C15ABE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5789E2592FBDFF6300C15ABE /* PBXTargetDependency */ = {
+		5789E2AE2FC1024900C15ABE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5789E2472FBDFF6100C15ABE /* media_samples */;
-			targetProxy = 5789E2582FBDFF6300C15ABE /* PBXContainerItemProxy */;
+			target = 5789E29C2FC1024600C15ABE /* calendar_and_events */;
+			targetProxy = 5789E2AD2FC1024900C15ABE /* PBXContainerItemProxy */;
 		};
-		5789E2632FBDFF6300C15ABE /* PBXTargetDependency */ = {
+		5789E2B82FC1024900C15ABE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5789E2472FBDFF6100C15ABE /* media_samples */;
-			targetProxy = 5789E2622FBDFF6300C15ABE /* PBXContainerItemProxy */;
+			target = 5789E29C2FC1024600C15ABE /* calendar_and_events */;
+			targetProxy = 5789E2B72FC1024900C15ABE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5789E2692FBDFF6300C15ABE /* Debug */ = {
+		5789E2BE2FC1024900C15ABE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -346,7 +333,7 @@
 			};
 			name = Debug;
 		};
-		5789E26A2FBDFF6300C15ABE /* Release */ = {
+		5789E2BF2FC1024900C15ABE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -403,7 +390,7 @@
 			};
 			name = Release;
 		};
-		5789E26C2FBDFF6300C15ABE /* Debug */ = {
+		5789E2C12FC1024900C15ABE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -413,7 +400,6 @@
 				DEVELOPMENT_TEAM = 86HP2LKRVC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "media-samples-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -424,7 +410,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.media-samples";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.calendar-and-events";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -436,7 +422,7 @@
 			};
 			name = Debug;
 		};
-		5789E26D2FBDFF6300C15ABE /* Release */ = {
+		5789E2C22FC1024900C15ABE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -446,7 +432,6 @@
 				DEVELOPMENT_TEAM = 86HP2LKRVC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "media-samples-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -457,7 +442,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.media-samples";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.calendar-and-events";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -469,7 +454,7 @@
 			};
 			name = Release;
 		};
-		5789E26F2FBDFF6300C15ABE /* Debug */ = {
+		5789E2C42FC1024900C15ABE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -479,7 +464,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.media-samplesTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.calendar-and-eventsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -487,11 +472,11 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/media_samples.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/media_samples";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/calendar_and_events.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/calendar_and_events";
 			};
 			name = Debug;
 		};
-		5789E2702FBDFF6300C15ABE /* Release */ = {
+		5789E2C52FC1024900C15ABE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -501,7 +486,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.media-samplesTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.calendar-and-eventsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -509,11 +494,11 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/media_samples.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/media_samples";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/calendar_and_events.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/calendar_and_events";
 			};
 			name = Release;
 		};
-		5789E2722FBDFF6300C15ABE /* Debug */ = {
+		5789E2C72FC1024900C15ABE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -521,7 +506,7 @@
 				DEVELOPMENT_TEAM = 86HP2LKRVC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.media-samplesUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.calendar-and-eventsUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -529,11 +514,11 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = media_samples;
+				TEST_TARGET_NAME = calendar_and_events;
 			};
 			name = Debug;
 		};
-		5789E2732FBDFF6300C15ABE /* Release */ = {
+		5789E2C82FC1024900C15ABE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -541,7 +526,7 @@
 				DEVELOPMENT_TEAM = 86HP2LKRVC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.media-samplesUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arensoft.calendar-and-eventsUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -549,50 +534,50 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = media_samples;
+				TEST_TARGET_NAME = calendar_and_events;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5789E2432FBDFF6100C15ABE /* Build configuration list for PBXProject "media_samples" */ = {
+		5789E2982FC1024600C15ABE /* Build configuration list for PBXProject "calendar_and_events" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5789E2692FBDFF6300C15ABE /* Debug */,
-				5789E26A2FBDFF6300C15ABE /* Release */,
+				5789E2BE2FC1024900C15ABE /* Debug */,
+				5789E2BF2FC1024900C15ABE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5789E26B2FBDFF6300C15ABE /* Build configuration list for PBXNativeTarget "media_samples" */ = {
+		5789E2C02FC1024900C15ABE /* Build configuration list for PBXNativeTarget "calendar_and_events" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5789E26C2FBDFF6300C15ABE /* Debug */,
-				5789E26D2FBDFF6300C15ABE /* Release */,
+				5789E2C12FC1024900C15ABE /* Debug */,
+				5789E2C22FC1024900C15ABE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5789E26E2FBDFF6300C15ABE /* Build configuration list for PBXNativeTarget "media_samplesTests" */ = {
+		5789E2C32FC1024900C15ABE /* Build configuration list for PBXNativeTarget "calendar_and_eventsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5789E26F2FBDFF6300C15ABE /* Debug */,
-				5789E2702FBDFF6300C15ABE /* Release */,
+				5789E2C42FC1024900C15ABE /* Debug */,
+				5789E2C52FC1024900C15ABE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5789E2712FBDFF6300C15ABE /* Build configuration list for PBXNativeTarget "media_samplesUITests" */ = {
+		5789E2C62FC1024900C15ABE /* Build configuration list for PBXNativeTarget "calendar_and_eventsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5789E2722FBDFF6300C15ABE /* Debug */,
-				5789E2732FBDFF6300C15ABE /* Release */,
+				5789E2C72FC1024900C15ABE /* Debug */,
+				5789E2C82FC1024900C15ABE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5789E2402FBDFF6100C15ABE /* Project object */;
+	rootObject = 5789E2952FC1024600C15ABE /* Project object */;
 }
