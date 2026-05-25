@@ -9,11 +9,29 @@ import Testing
 @testable import calendar_and_events
 
 struct calendar_and_eventsTests {
+    @Test func appDraftValidationRejectsInvalidRange() throws {
+        var draft = AppCalendarEventDraft()
+        draft.title = "Demo"
+        draft.endDate = draft.startDate.addingTimeInterval(-60)
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-        // Swift Testing Documentation
-        // https://developer.apple.com/documentation/testing
+        do {
+            try draft.validate()
+            Issue.record("Expected invalidDateRange error")
+        } catch let error as CalendarSampleError {
+            #expect(error == .invalidDateRange)
+        } catch {
+            Issue.record("Unexpected error: \(error)")
+        }
     }
 
+    @Test func allDayNormalizationPushesEndDateForward() throws {
+        var draft = SystemEventDraft()
+        draft.title = "All day"
+        draft.isAllDay = true
+        draft.endDate = draft.startDate
+
+        draft.normalizeAllDayDates()
+
+        #expect(draft.endDate > draft.startDate)
+    }
 }
