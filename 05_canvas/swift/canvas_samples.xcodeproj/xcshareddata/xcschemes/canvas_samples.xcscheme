@@ -78,7 +78,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "CANVAS_URL"
-            value = "https://giving-foxhound-top.ngrok-free.app"
+            value = "https://excalidraw-sample.netlify.app"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
