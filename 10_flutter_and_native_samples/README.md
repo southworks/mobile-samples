@@ -10,6 +10,7 @@ Flutter samples that demonstrate interoperability with platform-native Android (
 | Native view | A view rendered entirely by native code (Android `View` / iOS `UIView`) embedded in Flutter through a `PlatformView`. |
 | Call native view | Flutter uses a `MethodChannel` to open a native Android `Activity` or iOS `UIViewController` with a profile screen. |
 | Async native task | Flutter invokes native code that waits a random delay (1–10 s) and returns the result asynchronously. |
+| EventChannel sample | Native pushes a tick every second over an `EventChannel`; Flutter starts/stops listening. |
 | Pigeon sample | A single `WifiStatus` type defined in a Pigeon schema and generated as type-safe code for Dart, Kotlin and Swift. |
 
 The home screen (`lib/screens/home_screen.dart`) lists every sample.

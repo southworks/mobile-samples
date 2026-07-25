@@ -7,6 +7,7 @@ class MainActivity : FlutterFragmentActivity() {
     private var biometricAuthChannel: BiometricAuthChannel? = null
     private var nativeComputationChannel: NativeComputationChannel? = null
     private var callNativeViewChannel: CallNativeViewChannel? = null
+    private var nativeTickerChannel: NativeTickerChannel? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -22,6 +23,9 @@ class MainActivity : FlutterFragmentActivity() {
         callNativeViewChannel =
             CallNativeViewChannel(activity = this, messenger = messenger)
                 .also { it.register() }
+
+        nativeTickerChannel =
+            NativeTickerChannel(messenger = messenger).also { it.register() }
 
         // Pigeon-generated setup: the WifiStatus contract lives in the schema.
         WifiStatusApi.setUp(messenger, WifiStatusApiImpl(this))
@@ -40,6 +44,8 @@ class MainActivity : FlutterFragmentActivity() {
         nativeComputationChannel = null
         callNativeViewChannel?.unregister()
         callNativeViewChannel = null
+        nativeTickerChannel?.unregister()
+        nativeTickerChannel = null
         WifiStatusApi.setUp(flutterEngine.dartExecutor.binaryMessenger, null)
         super.cleanUpFlutterEngine(flutterEngine)
     }

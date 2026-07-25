@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'async_task_screen.dart';
 import 'biometric_auth_screen.dart';
 import 'call_native_view_screen.dart';
+import 'event_channel_screen.dart';
 import 'native_view_screen.dart';
 import 'wifi_status_screen.dart';
 
@@ -34,6 +35,12 @@ class HomeScreen extends StatelessWidget {
       subtitle: 'Flutter runs native work and shows the async result',
       icon: Icons.sync,
       builder: (context) => const AsyncTaskScreen(),
+    ),
+    _SampleEntry(
+      title: 'EventChannel sample',
+      subtitle: 'Native pushes a tick stream; Flutter listens and cancels',
+      icon: Icons.timeline,
+      builder: (context) => const EventChannelScreen(),
     ),
     _SampleEntry(
       title: 'Pigeon sample',

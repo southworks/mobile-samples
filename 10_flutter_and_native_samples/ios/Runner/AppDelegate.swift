@@ -6,6 +6,7 @@ import UIKit
   private var biometricAuthChannel: BiometricAuthChannel?
   private var nativeComputationChannel: NativeComputationChannel?
   private var callNativeViewChannel: CallNativeViewChannel?
+  private var nativeTickerChannel: NativeTickerChannel?
   private var wifiStatusApi: WifiStatusApiImpl?
 
   override func application(
@@ -31,6 +32,10 @@ import UIKit
     let callNativeView = CallNativeViewChannel(messenger: messenger)
     callNativeView.register()
     callNativeViewChannel = callNativeView
+
+    let ticker = NativeTickerChannel(messenger: messenger)
+    ticker.register()
+    nativeTickerChannel = ticker
 
     // Pigeon-generated setup: the WifiStatus contract lives in the schema.
     let wifiStatus = WifiStatusApiImpl()
