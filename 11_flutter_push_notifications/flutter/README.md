@@ -88,15 +88,53 @@ Debug SHA-1 is **not** required for basic FCM in this sample.
 
 ### 4. Generate `firebase_options.dart`
 
+FlutterFire CLI requires the **official Firebase CLI** to be installed first. See [Install the Firebase CLI](https://firebase.google.com/docs/cli#install_the_firebase_cli).
+
 From this folder:
+
+**1. Install and verify Firebase CLI:**
+
+```powershell
+npm install -g firebase-tools
+firebase --version
+```
+
+**2. Log in (required once per machine):**
+
+```powershell
+firebase login
+```
+
+**3. Install FlutterFire CLI and configure:**
 
 ```powershell
 dart pub global activate flutterfire_cli
 flutterfire configure
 ```
 
+If `flutterfire` is not found, add Dart’s pub cache to PATH (e.g. `%LOCALAPPDATA%\Pub\Cache\bin`) and open a new terminal.
+
 Select your Firebase project and the Android/iOS apps you registered. This updates `lib/firebase_options.dart` and aligns platform config files.
 
+**Do not commit real Firebase client config.** This repo ships **placeholders** only (`firebase_options.dart`, `google-services.json`). After `flutterfire configure`, keep the generated files local — GitHub secret scanning flags embedded API keys even when they are client-side Firebase keys. The service account under `../secrets/` must never be committed.
+
+If you already pushed real keys, rotate/restrict them in [Google Cloud Console → Credentials](https://console.cloud.google.com/apis/credentials) and close the GitHub alerts after this cleanup.
+
+If you already know your Project ID:
+
+```powershell
+flutterfire configure --project=YOUR_PROJECT_ID
+```
+
+#### Troubleshooting `flutterfire configure`
+
+| Symptom | Fix |
+|---------|-----|
+| `requires the official Firebase CLI` | Install `firebase-tools`; verify `firebase --version` |
+| `Found 0 Firebase projects` / `Failed to list Firebase projects` | Stale auth — run `firebase logout` then `firebase login --reauth`; verify with `firebase projects:list` |
+| Still fails after re-login | Use the same Google account as Firebase Console; create the project in Console first, then `flutterfire configure --project=YOUR_PROJECT_ID` |
+| `firebase login` says “Already logged in” but list still fails (401) | Tokens expired — use `--reauth`; check `firebase-debug.log` in this folder for 401 / expired token details |
+| Node engine warnings from `firebase-tools` | Prefer Node 22 LTS (`nvm install 22`, then `nvm use 22`), reinstall `firebase-tools` |
 ### 5. Topic messaging (no Console “create topic” step)
 
 Topics are created **implicitly**:
@@ -155,6 +193,8 @@ Single home screen:
 | iOS never receives | APNs key missing in Firebase; Push capability missing; Simulator only; permission denied |
 | Firebase init fails | Missing/wrong config files; package/Bundle ID mismatch; placeholder `firebase_options.dart` |
 | Subscribe fails | Firebase not initialized; no network; invalid topic name |
+| FlutterFire requires Firebase CLI | Install `firebase-tools`; verify `firebase --version` |
+| `flutterfire configure` lists 0 projects | Re-auth: `firebase logout` then `firebase login --reauth`; run `firebase projects:list` |
 
 ---
 

@@ -44,20 +44,22 @@ Set credentials (PowerShell):
 
 ```powershell
 $env:GOOGLE_APPLICATION_CREDENTIALS = "c:\diatom\mobile-samples\11_flutter_push_notifications\secrets\fcm-service-account.json"
-dart run
+dart run server
 ```
 
 Or pass the path explicitly:
 
 ```powershell
-dart run -- --service-account ..\secrets\fcm-service-account.json
+dart run server --service-account ..\secrets\fcm-service-account.json
 ```
 
 Optional topic override:
 
 ```powershell
-dart run -- --topic sample_push --service-account ..\secrets\fcm-service-account.json
+dart run server --topic sample_push --service-account ..\secrets\fcm-service-account.json
 ```
+
+When passing program flags, name the executable (`server` or `bin/server.dart`). Do **not** use `dart run -- --flag` — Dart treats the token after `--` as a package name.
 
 ---
 
@@ -124,6 +126,15 @@ If you send before any device has subscribed, the API call may still succeed but
 
 - `googleapis_auth` — OAuth from service account
 - `http` — FCM HTTP v1 POST
+
+---
+
+## Common pitfalls
+
+| Symptom | Fix |
+|---------|-----|
+| `Could not find package '--service-account'` | Use `dart run server --service-account ...`, not `dart run -- --service-account ...` |
+| `Could not find an option named "--topic"` | Flags go after `server`, not directly after `dart run` |
 
 ---
 
