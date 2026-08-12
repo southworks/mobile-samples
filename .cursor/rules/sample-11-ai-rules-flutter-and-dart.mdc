@@ -1,6 +1,6 @@
 ---
 description: Sample 11 - Definitive guidelines for modern, performant Flutter and Dart 3.x code generation.
-globs: "11_flutter_push_notifications/flutter/**/*.dart"
+globs: "11_push_notification/flutter/**/*.dart"
 alwaysApply: false
 ---
 # AI Rules for Flutter

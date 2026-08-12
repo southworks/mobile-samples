@@ -1,8 +1,0 @@
-# Local secrets — never commit
-secrets/
-**/*service-account*.json
-
-# Generated Firebase / FlutterFire artifacts (use placeholders in git; run flutterfire configure locally)
-11_flutter_push_notifications/flutter/firebase.json
-11_flutter_push_notifications/flutter/firebase-debug.log
-11_flutter_push_notifications/flutter/ios/Runner/GoogleService-Info.plist

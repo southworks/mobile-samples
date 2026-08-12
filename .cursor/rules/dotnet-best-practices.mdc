@@ -1,0 +1,36 @@
+---
+description: .NET/C# coding standards for this repository. Applies when editing C# or project files.
+globs: "**/*.{cs,csproj}"
+alwaysApply: false
+---
+# .NET/C# Best Practices
+
+Follow modern .NET conventions when writing or changing C# code in this repo.
+
+## Style & Structure
+
+- Prefer C# 12+ / current LTS .NET features when the project targets them
+- Use meaningful domain names; keep methods focused and cohesive
+- Prefer interfaces for testable boundaries (`I`-prefix)
+- Match existing project namespace and folder layout; do not invent a new layout unless the sample defines one
+
+## Dependency Injection & Async
+
+- Prefer constructor injection (primary constructors when already used in the project)
+- Register services with the correct lifetime (Singleton, Scoped, Transient)
+- Use `async`/`await` for I/O; return `Task` / `Task<T>`; avoid `.Result` / `.Wait()`
+- Use `ConfigureAwait(false)` in library code when appropriate
+
+## Safety & Quality
+
+- Validate inputs; throw specific exceptions with clear messages
+- Use structured logging (`Microsoft.Extensions.Logging`) with useful context
+- Prefer strongly typed configuration (`IOptions<T>` / data annotations) over magic strings
+- Use parameterized queries / safe data access; never log secrets
+- Dispose `IDisposable` / `IAsyncDisposable` resources correctly
+
+## Testing
+
+- Follow AAA (Arrange, Act, Assert)
+- Cover success and failure paths; mock dependencies via interfaces
+- Match the test framework already used in the sample (do not force MSTest/xUnit/NUnit)
