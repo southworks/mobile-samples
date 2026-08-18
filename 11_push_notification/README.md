@@ -4,15 +4,16 @@ End-to-end **Firebase Cloud Messaging (FCM)** demo using **topic messaging**.
 
 - **Flutter app** (`flutter/`) — subscribes to topic `sample_push`, receives push notifications, and shows a live clock (Clean Architecture + MVVM)
 - **Dart CLI** (`server/`) — sends a notification to the same topic via FCM HTTP v1
+- **.NET CLI** (`server-net/`) — same send behavior as the Dart CLI, implemented in C# 14 / .NET 10
 
 You do not need to publish the app to Google Play or the App Store. Firebase app registration only links your debug/dev package name and Bundle ID to a Firebase project.
 
 ```text
 ┌─────────────────────┐     title + body                      ┌──────────────┐
 │  server/ (Dart CLI) │     target topic: sample_push         │ Firebase FCM │
-│  + service account  │ ────────────────────────────────────► │              │
-└─────────────────────┘                                       └──────┬───────┘
-                                                                     │
+│  server-net/ (.NET) │ ────────────────────────────────────► │              │
+│  + service account  │                                       └──────┬───────┘
+└─────────────────────┘                                              │
                                                                      │ fan-out to
                                                                      │ topic subscribers
                                                                      ▼
@@ -23,7 +24,7 @@ You do not need to publish the app to Google Play or the App Store. Firebase app
                                                           └─────────────────────┘
 ```
 
-**Stack:** Flutter, Material 3, `firebase_core`, `firebase_messaging`, `ChangeNotifier` + `ListenableBuilder`.
+**Stack:** Flutter, Material 3, `firebase_core`, `firebase_messaging`, `ChangeNotifier` + `ListenableBuilder`. CLIs: Dart or .NET 10.
 
 ---
 
@@ -33,6 +34,7 @@ You do not need to publish the app to Google Play or the App Store. Firebase app
 11_push_notification/
   flutter/          # Flutter mobile app (Android + iOS)
   server/           # Dart CLI sender (FCM HTTP v1)
+  server-net/       # .NET CLI sender (FCM HTTP v1, same behavior)
   secrets/          # local only; gitignored (service account JSON)
   SPEC.md           # implementation brief
 ```
@@ -44,6 +46,7 @@ You do not need to publish the app to Google Play or the App Store. Firebase app
 | Requirement | Notes |
 |-------------|-------|
 | **Flutter / Dart SDK** | Dart `^3.12.2` (included with Flutter stable) |
+| **.NET 10 SDK** | For the .NET CLI in `server-net/` (C# 14) |
 | **Firebase project** | Cloud Messaging enabled |
 | **Android device or emulator** | Emulator must include **Google Play** |
 | **iOS device** (optional) | Physical iPhone recommended; Simulator remote push is limited |
@@ -133,6 +136,8 @@ On first launch:
 
 ### 7. Send a test notification
 
+**Dart CLI:**
+
 ```powershell
 cd c:\diatom\mobile-samples\11_push_notification\server
 dart pub get
@@ -146,7 +151,22 @@ $env:GOOGLE_APPLICATION_CREDENTIALS = "c:\diatom\mobile-samples\11_push_notifica
 dart run server
 ```
 
-The CLI prompts for a title (≤30 characters) and body (≤100 characters). Confirm the system notification and the in-app **Last notification** update.
+**.NET CLI:**
+
+```powershell
+cd c:\diatom\mobile-samples\11_push_notification\server-net
+dotnet restore
+dotnet run --project src/ServerNet -- --service-account ..\secrets\fcm-service-account.json
+```
+
+Or set the environment variable:
+
+```powershell
+$env:GOOGLE_APPLICATION_CREDENTIALS = "c:\diatom\mobile-samples\11_push_notification\secrets\fcm-service-account.json"
+dotnet run --project src/ServerNet
+```
+
+Both CLIs prompt for a title (≤30 characters) and body (≤100 characters). Confirm the system notification and the in-app **Last notification** update.
 
 ### 8. Verify unsubscribe (optional)
 
@@ -160,7 +180,8 @@ The CLI prompts for a title (≤30 characters) and body (≤100 characters). Con
 | Document | Contents |
 |----------|----------|
 | [flutter/README.md](flutter/README.md) | Firebase setup deep dive, UI overview, FlutterFire troubleshooting, common pitfalls |
-| [server/README.md](server/README.md) | CLI flags, credentials, interactive prompts, end-to-end test details |
+| [server/README.md](server/README.md) | Dart CLI flags, credentials, interactive prompts, end-to-end test details |
+| [server-net/README.md](server-net/README.md) | .NET CLI flags, credentials, interactive prompts, end-to-end test details |
 | [SPEC.md](SPEC.md) | Implementation brief and acceptance checklist |
 
 ---
