@@ -50,6 +50,10 @@ playground.xcworkspace
 
 Carthage/Build/
 
+# Sample 11 — Firebase service account keys
+11_push_notification/secrets/
+**/*service-account*.json
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo.
